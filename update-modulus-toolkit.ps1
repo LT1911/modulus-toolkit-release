@@ -77,7 +77,7 @@ $shell = New-Object -ComObject Shell.Application
 $downloadsFolder = $shell.Namespace("shell:Downloads").Self.Path
 
 # Define the path (including filename) for the downloaded archive
-$tempArchive = Join-Path -Path $downloadsFolder -ChildPath ("modulus-toolkit_" + (Get-Date -Format "yyyyMMddHHmmss") + ".7z")
+$tempArchive = Join-Path -Path $downloadsFolder -ChildPath ("modulus-toolkit.7z")
 Write-Host "Downloading module archive to $tempArchive"
 try {
     Invoke-WebRequest -Uri $archiveUrl -OutFile $tempArchive -UseBasicParsing
@@ -92,8 +92,9 @@ if (Test-Path $extractPath) { Remove-Item $extractPath -Recurse -Force }
 New-Item -ItemType Directory -Path $extractPath | Out-Null
 
 Write-Host "Extracting archive..."
-$sevenZipExe = "7z"  # Ensure 7z.exe is in your PATH or provide its full path (e.g., "C:\Program Files\7-Zip\7z.exe")
-$extractCommand = "$sevenZipExe x `"$tempArchive`" -o`"$extractPath`" -y"
+$sevenZipExe = "7z"  # Ensure 7z.exe is in your PATH or provide its full path
+# Include the -p parameter to supply the password for extracting the password-protected archive
+$extractCommand = "$sevenZipExe x `"$tempArchive`" -o`"$extractPath`" -p`"$plainPassword`" -y"
 try {
     Invoke-Expression $extractCommand
 } catch {
