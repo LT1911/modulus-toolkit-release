@@ -27,7 +27,7 @@ try {
     Write-Host "Latest available version: $remoteVersion"
 } catch {
     Write-Error "Failed to retrieve remote version information from $versionUrl"
-    exit 1
+    #exit 1
 }
 
 # --- Step 3: Compare Versions ---
