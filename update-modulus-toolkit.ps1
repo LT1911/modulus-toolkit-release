@@ -87,12 +87,12 @@ try {
 }
 
 # --- Step 6: Extract the Archive ---
-$extractPath = Join-Path ([System.IO.Path]::GetTempPath()) "ModuleUpdate"
+$extractPath = "C:\Users\ThomasLukas\Downloads\modulus-toolkit"
 if (Test-Path $extractPath) { Remove-Item $extractPath -Recurse -Force }
 New-Item -ItemType Directory -Path $extractPath | Out-Null
 
 Write-Host "Extracting archive..."
-$sevenZipExe = "7z"  # Ensure 7z.exe is in your PATH or provide its full path
+$sevenZipExe = "C:\Program Files\7-Zip\7z.exe"  # Ensure 7z.exe is in your PATH or provide its full path
 # Include the -p parameter to supply the password for extracting the password-protected archive
 $extractCommand = "$sevenZipExe x `"$tempArchive`" -o`"$extractPath`" -p`"$plainPassword`" -y"
 try {
