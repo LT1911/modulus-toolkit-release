@@ -1,10 +1,12 @@
-#tlukas, 20.02.2025
+# tlukas, 20.02.2025
+# modulus-toolkit Update Script with PBKDF2-based Password Verification
 
-$moduleName = "modulus-toolkit"                                                                             # Name of the module to update
-$versionUrl = "https://raw.githubusercontent.com/LT1911/modulus-toolkit-release/main/version.txt"           # URL to the remote version file
-$archiveUrl = "https://raw.githubusercontent.com/LT1911/modulus-toolkit-release/main/modulus-toolkit.7z"    # URL to the packaged module archive
-
-$localModulePath = "C:\Program Files\PowerShell\Modules\$moduleName"
+# --- Configuration ---
+$moduleName       = "modulus-toolkit"                                                                               # Name of the module to update
+$versionUrl       = "https://raw.githubusercontent.com/LT1911/modulus-toolkit-release/main/version.txt"             # URL to the remote version file
+$archiveUrl       = "https://raw.githubusercontent.com/LT1911/modulus-toolkit-release/main/modulus-toolkit.7z"      # URL to the packaged module archive
+$passwordHashUrl  = "https://raw.githubusercontent.com/LT1911/modulus-toolkit-release/main/passwordHash.json"       # URL to the JSON file with PBKDF2 parameters
+$localModulePath  = "C:\Program Files\PowerShell\Modules\$moduleName"                                               # Where the module is installed
 
 # --- Step 1: Determine the Current Installed Version ---
 if (Test-Path "$localModulePath\$moduleName.psd1") {
@@ -27,71 +29,79 @@ try {
     Write-Host "Latest available version: $remoteVersion"
 } catch {
     Write-Error "Failed to retrieve remote version information from $versionUrl"
-    #exit 1
+    Return
 }
 
 # --- Step 3: Compare Versions ---
 if ($remoteVersion -le $currentVersion) {
     Write-Host "No update needed. Installed version is up-to-date."
-    #exit 0
+    Return
 }
 Write-Host "An update is available. Proceeding with update..."
 
-
-
-# --- Step 4: Download the Module Archive ---
-#$tempArchive = Join-Path ([System.IO.Path]::GetTempPath()) ("modulus-toolkit_" + (Get-Date -Format "yyyyMMddHHmmss") + ".7z")
-
-$shell = New-Object -ComObject Shell.Application
-$downloadsFolder = $shell.Namespace("shell:Downloads").Self.Path
-$downloadsFolder
-
-Write-Host "Downloading module archive to $downloadsFolder"
+# --- Step 4: Password Check Using PBKDF2 Parameters from Remote JSON ---
 try {
-    Invoke-WebRequest -Uri $archiveUrl -OutFile $downloadsFolder -UseBasicParsing
+    $jsonContent = (Invoke-WebRequest -Uri $passwordHashUrl -UseBasicParsing).Content | ConvertFrom-Json
+    $expectedSalt      = $jsonContent.Salt        # Base64-encoded salt
+    $expectedHash      = $jsonContent.Hash        # Base64-encoded expected hash
+    $expectedIterations= $jsonContent.Iterations  # Number of iterations (e.g., 10000)
 } catch {
-    Write-Error "Failed to download the module archive from $archiveUrl"
-    #exit 1
+    Write-Error "Failed to retrieve or parse password hash JSON from $passwordHashUrl"
+    Return
 }
 
-
-<#
-# --- Step 4.5: Password Check ---
-# Prompt for a password before continuing with extraction and deployment.
-# Note: For production use, consider comparing secure hash values instead of plain text.
-$expectedPassword = "YourSecurePassword"  # Replace with your actual password or secure retrieval method
+# Prompt the user for a password securely
 $secureInput = Read-Host "Enter password to proceed with update" -AsSecureString
-
-# Convert the secure string to plain text for comparison (demonstration purposes only)
-$inputPassword = [Runtime.InteropServices.Marshal]::PtrToStringAuto(
+$plainPassword = [Runtime.InteropServices.Marshal]::PtrToStringAuto(
     [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureInput)
 )
 
-if ($inputPassword -ne $expectedPassword) {
-    Write-Error "Incorrect password. Update aborted."
-    # Optionally, delete the downloaded archive if the password check fails
-    if (Test-Path $tempArchive) { Remove-Item $tempArchive -Force }
-    exit 1
-}
+# Convert the salt from Base64 to a byte array
+$saltBytes = [Convert]::FromBase64String($expectedSalt)
 
+# Create a PBKDF2 instance to derive the hash from the input password
+$pbkdf2 = New-Object System.Security.Cryptography.Rfc2898DeriveBytes($plainPassword, $saltBytes, $expectedIterations)
+# Get the derived key (assuming the expected hash is 32 bytes long, typical for SHA256)
+$derivedKeyBytes = $pbkdf2.GetBytes(32)
+$derivedHash = [Convert]::ToBase64String($derivedKeyBytes)
+
+if ($derivedHash -ne $expectedHash) {
+    Write-Error "Incorrect password. Update aborted."
+    Return
+}
 Write-Host "Password verified. Continuing with the update..."
 
-# --- Step 5: Extract the Archive ---
+# --- Step 5: Download the Module Archive ---
+# Determine the Downloads folder using the Shell COM object
+$shell = New-Object -ComObject Shell.Application
+$downloadsFolder = $shell.Namespace("shell:Downloads").Self.Path
+
+# Define the path (including filename) for the downloaded archive
+$tempArchive = Join-Path -Path $downloadsFolder -ChildPath ("modulus-toolkit_" + (Get-Date -Format "yyyyMMddHHmmss") + ".7z")
+Write-Host "Downloading module archive to $tempArchive"
+try {
+    Invoke-WebRequest -Uri $archiveUrl -OutFile $tempArchive -UseBasicParsing
+} catch {
+    Write-Error "Failed to download the module archive from $archiveUrl"
+    Return
+}
+
+# --- Step 6: Extract the Archive ---
 $extractPath = Join-Path ([System.IO.Path]::GetTempPath()) "ModuleUpdate"
 if (Test-Path $extractPath) { Remove-Item $extractPath -Recurse -Force }
 New-Item -ItemType Directory -Path $extractPath | Out-Null
 
 Write-Host "Extracting archive..."
-$sevenZipExe = "7z"  # Ensure 7z.exe is in your PATH or provide the full path
+$sevenZipExe = "7z"  # Ensure 7z.exe is in your PATH or provide its full path (e.g., "C:\Program Files\7-Zip\7z.exe")
 $extractCommand = "$sevenZipExe x `"$tempArchive`" -o`"$extractPath`" -y"
 try {
     Invoke-Expression $extractCommand
 } catch {
     Write-Error "Extraction failed."
-    exit 1
+    Return
 }
 
-# --- Step 6: Install the Updated Module ---
+# --- Step 7: Install the Updated Module ---
 if (Test-Path $localModulePath) {
     $backupPath = $localModulePath + "_" + (Get-Date -Format "yyyyMMddHHmmss")
     try {
@@ -102,16 +112,16 @@ if (Test-Path $localModulePath) {
     }
 }
 try {
+    # Assumes the archive contains the module folder structure.
     Move-Item -Path (Join-Path $extractPath "*") -Destination $localModulePath -Force
     Write-Host "Module updated successfully to version $remoteVersion."
 } catch {
     Write-Error "Installation failed. Update aborted."
-    exit 1
+    Return
 }
 
-# --- Step 7: Cleanup ---
+# --- Step 8: Cleanup ---
 Remove-Item $tempArchive -Force
 Remove-Item $extractPath -Recurse -Force
 
 Write-Host "Update complete. Please restart your PowerShell session or run 'Import-Module $moduleName -Force' to reload the module."
-#>
