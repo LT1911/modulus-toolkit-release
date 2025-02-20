@@ -1,9 +1,9 @@
 #tlukas, 20.02.2025
 
-# --- Configuration ---
-$versionUrl = "https://example.com/path/to/version.txt"  # URL to the remote version file
+$moduleName = "modulus-toolkit"                            # Name of the module to update
+$versionUrl = "https://example.com/path/to/version.txt"    # URL to the remote version file
 $archiveUrl = "https://example.com/path/to/MyModule.7z"    # URL to the packaged module archive
-$moduleName = "MyModule"
+
 $localModulePath = Join-Path -Path $env:USERPROFILE -ChildPath "Documents\WindowsPowerShell\Modules\$moduleName"
 
 # --- Step 1: Determine the Current Installed Version ---
