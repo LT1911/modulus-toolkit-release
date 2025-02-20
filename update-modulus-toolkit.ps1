@@ -46,7 +46,7 @@ try {
     Invoke-WebRequest -Uri $archiveUrl -OutFile $tempArchive -UseBasicParsing
 } catch {
     Write-Error "Failed to download the module archive from $archiveUrl"
-    exit 1
+    #exit 1
 }
 
 
