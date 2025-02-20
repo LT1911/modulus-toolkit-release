@@ -67,7 +67,7 @@ $derivedHash = [Convert]::ToBase64String($derivedKeyBytes)
 
 if ($derivedHash -ne $expectedHash) {
     Write-Error "Incorrect password. Update aborted."
-    Return
+    Exit 1
 }
 Write-Host "Password verified. Continuing with the update..."
 
@@ -83,28 +83,10 @@ try {
     Invoke-WebRequest -Uri $archiveUrl -OutFile $tempArchive -UseBasicParsing
 } catch {
     Write-Error "Failed to download the module archive from $archiveUrl"
-    Return
+    Exit 1
 }
-
-Start-Sleep -Seconds 3  # Pause to ensure the file is written before extraction
-
-<#
-# --- Step 6: Extract the Archive ---
-$extractPath = "C:\Users\ThomasLukas\Downloads\modulus-toolkit"
-if (Test-Path $extractPath) { Remove-Item $extractPath -Recurse -Force }
-New-Item -ItemType Directory -Path $extractPath | Out-Null
-
-Write-Host "Extracting archive..."
-$sevenZipExe = "'C:\Program Files\7-Zip\7z.exe'"  # Ensure 7z.exe is in your PATH or provide its full path
-# Include the -p parameter to supply the password for extracting the password-protected archive
-$extractCommand = "$sevenZipExe x `"$tempArchive`" -o`"$extractPath`" -p`"$plainPassword`" -y"
-try {
-    Invoke-Expression $extractCommand
-} catch {
-    Write-Error "Extraction failed."
-    Return
-}
-#>
+write-host "Waiting for the download to complete..."
+Start-Sleep -Seconds 5  # Pause to ensure the file is written before extraction
 
 # --- Step 6: Extract the Archive using the call operator ---
 $extractPath = "C:\Users\ThomasLukas\Downloads\"
@@ -119,7 +101,7 @@ $sevenZipExe = 'C:\Program Files\7-Zip\7z.exe'  # Provide the full path if neces
 # Check for errors by verifying that files were extracted.
 if (!(Test-Path $extractPath) -or (Get-ChildItem $extractPath | Measure-Object).Count -eq 0) {
     Write-Error "Extraction failed."
-    Return
+    Exit
 } else {
     Write-Host "Extraction succeeded."
 }
@@ -144,7 +126,7 @@ try {
 }
 
 # --- Step 8: Cleanup ---
-Remove-Item $tempArchive -Force
-Remove-Item $extractPath -Recurse -Force
+#Remove-Item $tempArchive -Force
+#Remove-Item $extractPath -Recurse -Force
 
 Write-Host "Update complete. Please restart your PowerShell session or run 'Import-Module $moduleName -Force' to reload the module."
