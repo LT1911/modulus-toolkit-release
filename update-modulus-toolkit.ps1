@@ -86,13 +86,14 @@ try {
     Return
 }
 
+<#
 # --- Step 6: Extract the Archive ---
 $extractPath = "C:\Users\ThomasLukas\Downloads\modulus-toolkit"
 if (Test-Path $extractPath) { Remove-Item $extractPath -Recurse -Force }
 New-Item -ItemType Directory -Path $extractPath | Out-Null
 
 Write-Host "Extracting archive..."
-$sevenZipExe = "C:\Program Files\7-Zip\7z.exe"  # Ensure 7z.exe is in your PATH or provide its full path
+$sevenZipExe = "'C:\Program Files\7-Zip\7z.exe'"  # Ensure 7z.exe is in your PATH or provide its full path
 # Include the -p parameter to supply the password for extracting the password-protected archive
 $extractCommand = "$sevenZipExe x `"$tempArchive`" -o`"$extractPath`" -p`"$plainPassword`" -y"
 try {
@@ -100,6 +101,25 @@ try {
 } catch {
     Write-Error "Extraction failed."
     Return
+}
+#>
+
+# --- Step 6: Extract the Archive using the call operator ---
+$extractPath = "C:\Users\ThomasLukas\Downloads\"
+if (Test-Path $extractPath) { Remove-Item $extractPath -Recurse -Force }
+New-Item -ItemType Directory -Path $extractPath | Out-Null
+
+Write-Host "Extracting archive..."
+$sevenZipExe = 'C:\Program Files\7-Zip\7z.exe'  # Provide the full path if necessary
+# Use the call operator (&) so that PowerShell correctly interprets the command and its parameters.
+& $sevenZipExe x $tempArchive -o"$extractPath" -p"$plainPassword" -y
+
+# Check for errors by verifying that files were extracted.
+if (!(Test-Path $extractPath) -or (Get-ChildItem $extractPath | Measure-Object).Count -eq 0) {
+    Write-Error "Extraction failed."
+    Return
+} else {
+    Write-Host "Extraction succeeded."
 }
 
 # --- Step 7: Install the Updated Module ---
