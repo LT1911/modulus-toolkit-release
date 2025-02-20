@@ -38,7 +38,7 @@ if ($remoteVersion -le $currentVersion) {
 Write-Host "An update is available. Proceeding with update..."
 
 
-<#
+
 # --- Step 4: Download the Module Archive ---
 $tempArchive = Join-Path ([System.IO.Path]::GetTempPath()) ("MyModule_" + (Get-Date -Format "yyyyMMddHHmmss") + ".7z")
 Write-Host "Downloading module archive to $tempArchive"
@@ -49,6 +49,8 @@ try {
     exit 1
 }
 
+
+<#
 # --- Step 4.5: Password Check ---
 # Prompt for a password before continuing with extraction and deployment.
 # Note: For production use, consider comparing secure hash values instead of plain text.
