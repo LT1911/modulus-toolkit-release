@@ -1,10 +1,10 @@
 #tlukas, 20.02.2025
 
-$moduleName = "modulus-toolkit"                            # Name of the module to update
-$versionUrl = "https://example.com/path/to/version.txt"    # URL to the remote version file
-$archiveUrl = "https://example.com/path/to/MyModule.7z"    # URL to the packaged module archive
+$moduleName = "modulus-toolkit"                                                                             # Name of the module to update
+$versionUrl = "https://raw.githubusercontent.com/LT1911/modulus-toolkit-release/main/version.txt"           # URL to the remote version file
+$archiveUrl = "https://raw.githubusercontent.com/LT1911/modulus-toolkit-release/main/modulus-toolkit.7z"    # URL to the packaged module archive
 
-$localModulePath = Join-Path -Path $env:USERPROFILE -ChildPath "Documents\WindowsPowerShell\Modules\$moduleName"
+$localModulePath = "C:\Program Files\PowerShell\Modules\$moduleName"
 
 # --- Step 1: Determine the Current Installed Version ---
 if (Test-Path "$localModulePath\$moduleName.psd1") {
@@ -37,6 +37,8 @@ if ($remoteVersion -le $currentVersion) {
 }
 Write-Host "An update is available. Proceeding with update..."
 
+
+<#
 # --- Step 4: Download the Module Archive ---
 $tempArchive = Join-Path ([System.IO.Path]::GetTempPath()) ("MyModule_" + (Get-Date -Format "yyyyMMddHHmmss") + ".7z")
 Write-Host "Downloading module archive to $tempArchive"
@@ -105,3 +107,4 @@ Remove-Item $tempArchive -Force
 Remove-Item $extractPath -Recurse -Force
 
 Write-Host "Update complete. Please restart your PowerShell session or run 'Import-Module $moduleName -Force' to reload the module."
+#>
