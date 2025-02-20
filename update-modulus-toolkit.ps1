@@ -33,7 +33,7 @@ try {
 # --- Step 3: Compare Versions ---
 if ($remoteVersion -le $currentVersion) {
     Write-Host "No update needed. Installed version is up-to-date."
-    exit 0
+    #exit 0
 }
 Write-Host "An update is available. Proceeding with update..."
 
