@@ -85,13 +85,15 @@ try {
     Write-Error "Failed to download the module archive from $archiveUrl"
     Exit 1
 }
-write-host "Waiting for the download to complete..."
-Start-Sleep -Seconds 5  # Pause to ensure the file is written before extraction
+
+#write-host "Waiting for the download to complete..."
+#Start-Sleep -Seconds 5  # Pause to ensure the file is written before extraction
 
 # --- Step 6: Extract the Archive using the call operator ---
-$extractPath = "C:\Users\ThomasLukas\Downloads\"
-if (Test-Path $extractPath) { Remove-Item $extractPath -Recurse -Force }
-New-Item -ItemType Directory -Path $extractPath | Out-Null
+$extractPath = $downloadsFolder
+
+#if (Test-Path $extractPath) { Remove-Item $extractPath -Recurse -Force }
+#New-Item -ItemType Directory -Path $extractPath | Out-Null
 
 Write-Host "Extracting archive..."
 $sevenZipExe = 'C:\Program Files\7-Zip\7z.exe'  # Provide the full path if necessary
