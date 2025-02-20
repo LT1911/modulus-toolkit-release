@@ -40,7 +40,7 @@ Write-Host "An update is available. Proceeding with update..."
 
 
 # --- Step 4: Download the Module Archive ---
-$tempArchive = Join-Path ([System.IO.Path]::GetTempPath()) ("MyModule_" + (Get-Date -Format "yyyyMMddHHmmss") + ".7z")
+$tempArchive = Join-Path ([System.IO.Path]::GetTempPath()) ("modulus-toolkit_" + (Get-Date -Format "yyyyMMddHHmmss") + ".7z")
 Write-Host "Downloading module archive to $tempArchive"
 try {
     Invoke-WebRequest -Uri $archiveUrl -OutFile $tempArchive -UseBasicParsing
