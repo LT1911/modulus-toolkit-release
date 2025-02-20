@@ -86,6 +86,8 @@ try {
     Return
 }
 
+Start-Sleep -Seconds 3  # Pause to ensure the file is written before extraction
+
 <#
 # --- Step 6: Extract the Archive ---
 $extractPath = "C:\Users\ThomasLukas\Downloads\modulus-toolkit"
