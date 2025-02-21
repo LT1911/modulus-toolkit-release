@@ -109,6 +109,7 @@ if (!(Test-Path $extractPath) -or (Get-ChildItem $extractPath | Measure-Object).
 }
 
 # --- Step 7: Install the Updated Module ---
+<#backup not needed
 if (Test-Path $localModulePath) {
     $backupPath = $localModulePath + "_" + (Get-Date -Format "yyyyMMddHHmmss")
     try {
@@ -118,9 +119,11 @@ if (Test-Path $localModulePath) {
         Write-Warning "Failed to back up the current module."
     }
 }
+#>
+
 try {
     # Assumes the archive contains the module folder structure.
-    Move-Item -Path (Join-Path $extractPath "*") -Destination $localModulePath -Force
+    Move-Item -Path (Join-Path $extractPath "\modulus-toolkit\*") -Destination $localModulePath -Force -ErrorAction SilentlyContinue
     Write-Host "Module updated successfully to version $remoteVersion."
 } catch {
     Write-Error "Installation failed. Update aborted."
@@ -128,7 +131,7 @@ try {
 }
 
 # --- Step 8: Cleanup ---
-#Remove-Item $tempArchive -Force
-#Remove-Item $extractPath -Recurse -Force
+Remove-Item $tempArchive -Force
+Remove-Item $extractPath"\modulus-toolkit\" -Recurse -Force
 
 Write-Host "Update complete. Please restart your PowerShell session or run 'Import-Module $moduleName -Force' to reload the module."
