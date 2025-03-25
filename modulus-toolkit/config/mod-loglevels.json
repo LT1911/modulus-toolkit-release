@@ -1,0 +1,731 @@
+{
+  "services": [
+    {
+      "serviceName": "amlservice",
+      "displayName": "Galaxis AML Service",
+      "configFiles": [
+        {
+          "fileName": "appsettings.json",
+          "path": "D:\\Galaxis\\Program\\bin\\AMLService\\appsettings.json",
+          "type": "json",
+          "logAppenders": [
+            {
+              "name": "DefaultAppender",
+              "jsonKeyPath": "Serilog.MinimumLevel.Default",
+              "defaultLevel": "Information"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisAuthenticationService",
+      "displayName": "Galaxis Authentication Service",
+      "configFiles": [
+        {
+          "fileName": "log4net.xml",
+          "path": "D:\\Galaxis\\Program\\bin\\AuthenticationService\\log4net.xml",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "DefaultAppender",
+              "loggingXPath": "//log4net/root/level",
+              "defaultLevel": "INFO"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisCageIntelligenceService",
+      "displayName": "Galaxis CageIntelligence Service",
+      "configFiles": [
+        {
+          "fileName": "CageIntelligence-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\StarCage\\CageIntelligence\\CageIntelligence-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisCashWalletService",
+      "displayName": "Galaxis CashWallet Service",
+      "configFiles": [
+        {
+          "fileName": "log4net.xml",
+          "path": "D:\\Galaxis\\Program\\bin\\CashWalletService\\log4net.xml",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "DefaultAppender",
+              "loggingXPath": "//log4net/root/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisCasinoSynchronizationService",
+      "displayName": "Galaxis CasinoSynchronization Service",
+      "configFiles": [
+        {
+          "fileName": "CasinoSynchronization.xml",
+          "path": "D:\\Galaxis\\Program\\bin\\CasinoSynchronizationService\\Config\\CasinoSynchronizationService-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "DefaultAppender",
+              "loggingXPath": "//log4net/root/priority",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisKioskRouterService",
+      "displayName": "Galaxis KioskRouter Service",
+      "configFiles": [
+        {
+          "fileName": "KioskRouter-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\QPonCash\\KioskRouter-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisMarketingDataConsolidationService",
+      "displayName": "Galaxis MarketingDataConsolidation Service",
+      "configFiles": [
+        {
+          "fileName": "MarketingDataConsolidation-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\StarMarketing\\MarketingDataConsolidation\\MarketingDataConsolidation-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisMarketingIntelligenceService",
+      "displayName": "Galaxis MarketingIntelligence Service",
+      "configFiles": [
+        {
+          "fileName": "MarketingIntelligence-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\StarMarketing\\MarketingIntelligence\\MarketingIntelligence-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisMobileApplicationService",
+      "displayName": "Galaxis MobileApplication Service",
+      "configFiles": [
+        {
+          "fileName": "MobileApplicationService-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\MobileApplicationService\\MobileApplicationService-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxismyBarService",
+      "displayName": "Galaxis myBar Service",
+      "configFiles": [
+        {
+          "fileName": "MyBarService-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\PlayerServices\\MyBar\\MyBarService-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisPlayerIntelligenceService",
+      "displayName": "Galaxis PlayerIntelligence Service",
+      "configFiles": [
+        {
+          "fileName": "PlayerIntelligence-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\PlayerServices\\PlayerIntelligence\\PlayerIntelligence-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisqponcashService",
+      "displayName": "Galaxis qpon cash Service",
+      "configFiles": [
+        {
+          "fileName": "QPonCashService-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\QponCash\\QPonCashService-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisSlotDataConsolidationService",
+      "displayName": "Galaxis SlotDataConsolidation Service",
+      "configFiles": [
+        {
+          "fileName": "SlotDataConsolidation-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\StarSlots\\SlotDataConsolidation\\SlotDataConsolidation-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisSlotIntelligenceService",
+      "displayName": "Galaxis SlotIntelligence Service",
+      "configFiles": [
+        {
+          "fileName": "SlotIntelligence-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\StarSlots\\SlotIntelligence\\SlotIntelligence-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisStartupService",
+      "displayName": "Galaxis GalaxisStartup Service",
+      "configFiles": []
+    },
+    {
+      "serviceName": "GalaxisStatutoryService",
+      "displayName": "Galaxis Statutory Service",
+      "configFiles": [
+        {
+          "fileName": "StatutoryService-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\StarControl\\StatutoryService\\StatutoryService-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisTableIntelligenceService",
+      "displayName": "Galaxis TableIntelligence Service",
+      "configFiles": [
+        {
+          "fileName": "TableIntelligence-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\StarTable\\TableIntelligence\\TableIntelligence-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisTSDRouterService",
+      "displayName": "Galaxis TSDRouter Service",
+      "configFiles": [
+        {
+          "fileName": "TableIntelligence-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\StarTable\\TSDRouter\\TSDRouter-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisUserAuthenticationService",
+      "displayName": "Galaxis UserAuthentication Service",
+      "configFiles": [
+        {
+          "fileName": "UserAuthenticationService-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\StarControl\\UserAuthenticationService\\UserAuthenticationService-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisWebJackpotService",
+      "displayName": "Galaxis WebJackpot Service",
+      "configFiles": [
+        {
+          "fileName": "WebJackpot-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\WebInterfaces\\WebJackpot\\WebJackpot-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisWebMarketingService",
+      "displayName": "Galaxis WebMarketing Service",
+      "configFiles": [
+        {
+          "fileName": "WebMarketing-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\WebInterfaces\\WebMarketing\\WebMarketing-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "GalaxisWebPlayerService",
+      "displayName": "Galaxis WebPlayer Service",
+      "configFiles": [
+        {
+          "fileName": "WebPlayer-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\WebInterfaces\\WebPlayer\\WebPlayer-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "glxapi",
+      "displayName": "Galaxis API",
+      "configFiles": [
+        {
+          "fileName": "appsettings.json",
+          "path": "D:\\Galaxis\\Program\\bin\\GalaxisApi\\appsettings.json",
+          "type": "json",
+          "logAppenders": [
+            {
+              "name": "DefaultAppender",
+              "jsonKeyPath": "Serilog.MinimumLevel",
+              "defaultLevel": "Information"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "licenseservice",
+      "displayName": "Galaxis License Service",
+      "configFiles": [
+        {
+          "fileName": "appsettings.json",
+          "path": "D:\\Galaxis\\Program\\bin\\LicenseService\\appsettings.json",
+          "type": "json",
+          "logAppenders": [
+            {
+              "name": "DefaultAppender",
+              "jsonKeyPath": "Serilog.MinimumLevel.Default",
+              "defaultLevel": "Information"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "loyalty-service",
+      "displayName": "Galaxis Loyalty Service",
+      "configFiles": [
+        {
+          "fileName": "appsettings.json",
+          "path": "D:\\Galaxis\\Program\\bin\\LoyaltyService\\appsettings.json",
+          "type": "json",
+          "logAppenders": [
+            {
+              "name": "DefaultAppender",
+              "jsonKeyPath": "Serilog.MinimumLevel.Default",
+              "defaultLevel": "Information"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "MemberDataServerService",
+      "displayName": "Galaxis MemberDataServer service",
+      "configFiles": []
+    },
+    {
+      "serviceName": "nginx",
+      "displayName": "nginx",
+      "configFiles": []
+    },
+    {
+      "serviceName": "notificationservice",
+      "displayName": "Galaxis Notification Service",
+      "configFiles": [
+        {
+          "fileName": "appsettings.json",
+          "path": "D:\\Galaxis\\Program\\bin\\NotificationService\\appsettings.json",
+          "type": "json",
+          "logAppenders": [
+            {
+              "name": "DefaultAppender",
+              "jsonKeyPath": "Serilog.MinimumLevel.Default",
+              "defaultLevel": "Information"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "outbox-service",
+      "displayName": "Galaxis Outbox Service",
+      "configFiles": [
+        {
+          "fileName": "appsettings.json",
+          "path": "D:\\Galaxis\\Program\\bin\\OutboxService\\appsettings.json",
+          "type": "json",
+          "logAppenders": [
+            {
+              "name": "DefaultAppender",
+              "jsonKeyPath": "Serilog.MinimumLevel.Default",
+              "defaultLevel": "Information"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "pinit",
+      "displayName": "pinit",
+      "configFiles": []
+    },
+    {
+      "serviceName": "player-service",
+      "displayName": "Galaxis Player Service",
+      "configFiles": [
+        {
+          "fileName": "appsettings.json",
+          "path": "D:\\Galaxis\\Program\\bin\\PlayerService\\appsettings.json",
+          "type": "json",
+          "logAppenders": [
+            {
+              "name": "DefaultAppender",
+              "jsonKeyPath": "Serilog.MinimumLevel.Default",
+              "defaultLevel": "Information"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "RabbitMQ",
+      "displayName": "RabbitMQ",
+      "configFiles": []
+    },
+    {
+      "serviceName": "SlotDataExporterService",
+      "displayName": "Galaxis SlotDataExporterService",
+      "configFiles": [
+        {
+          "fileName": "SlotDataExporter-Log.config",
+          "path": "D:\\Galaxis\\Program\\bin\\Config\\StarSlots\\SlotDataExporter\\SlotDataExporter-Log.config",
+          "type": "xml",
+          "logAppenders": [
+            {
+              "name": "BusinessLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='BusinessLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "PerformanceLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='PerformanceLogger']/level",
+              "defaultLevel": "DEBUG"
+            },
+			{
+              "name": "SecurityLoggerAppender",
+              "loggingXPath": "//log4net/logger[@name='SecurityLogger']/level",
+              "defaultLevel": "DEBUG"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "serviceName": "tablesetup.service",
+      "displayName": "Galaxis TableSetup Service",
+      "configFiles": [
+        {
+          "fileName": "appsettings.json",
+          "path": "D:\\Galaxis\\Program\\bin\\TableSetupService\\appsettings.json",
+          "type": "json",
+          "logAppenders": [
+            {
+              "name": "DefaultAppender",
+              "jsonKeyPath": "Serilog.MinimumLevel.Default",
+              "defaultLevel": "Information"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

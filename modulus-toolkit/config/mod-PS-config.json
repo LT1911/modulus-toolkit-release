@@ -1,0 +1,11 @@
+{
+  "directories": {
+    "sources":    "I:/modulus-toolkit/sources",
+    "prep":       "I:/modulus-toolkit/prep",
+    "logs":       "I:/modulus-toolkit/logs",
+    "healthcheck":"I:/modulus-toolkit/healthcheck",
+    "Galaxis":    "D:/Galaxis",
+    "OnlineData": "D:/OnlineData",
+    "backup":     "D:/_BACKUP"
+    }
+}

@@ -1,0 +1,72 @@
+{ 
+	"environments": {
+		"DB": {
+			"environmentvariables": {
+				"GALAXIS_HOME": "\\\\{PH_APPSERVER_HN}\\Galaxis",
+				"GALAXIS_HOME_LOCAL": "C:\\Galaxis",
+				"GALAXIS_JAVA_HOME": "\\\\{PH_APPSERVER_HN}\\Galaxis\\Install\\JRE",
+				"GALAXIS_ORACLE_HOME": "C:\\Oracle\\Client32",
+				"GRIPS_HOME": "D:\\OnlineData",
+				"MODULUS_SERVER": "DB",
+				"NLS_DATE_FORMAT": "YYYY-MM-DD-HH24.MI.SS",	
+				"NLS_LANG": "AMERICAN_AMERICA.WE8MSWIN1252",
+				"ORACLE_HOSTNAME": "{PH_DBSERVER_HN}",
+				"ORA_SDTZ": "{PH_TIMEZONE}"
+			}
+		},
+		"APP": {
+			"environmentvariables": {
+				"ERLANG_HOME": "D:\\Galaxis\\Program\\bin\\Erlang",
+				"GALAXIS_HOME": "D:\\Galaxis",
+				"GALAXIS_HOME_LOCAL": "C:\\Galaxis",
+				"GALAXIS_JAVA_HOME": "D:\\Galaxis\\Install\\JRE",
+				"GALAXIS_ORACLE_HOME": "C:\\Oracle\\Client32",
+				"GRIPS_HOME": "D:\\OnlineData",				
+				"JAVA_HOME": "C:\\Program Files (x86)\\Java\\jdk-17",
+				"MODULUS_SERVER": "APP",
+				"NLS_DATE_FORMAT": "YYYY-MM-DD-HH24.MI.SS",		
+				"NLS_LANG"	: "AMERICAN_AMERICA.WE8MSWIN1252",		
+				"ORACLE_HOSTNAME": "{PH_DBSERVER_HN}",
+				"ORA_SDTZ"	: "{PH_TIMEZONE}"	
+			}
+		},
+		"FS": {
+			"environmentvariables": {
+				"GALAXIS_HOME": "\\\\{PH_APPSERVER_HN}\\Galaxis",
+				"GRIPS_HOME": "D:\\OnlineData",
+				"MODULUS_SERVER": "FS",
+				"NLS_DATE_FORMAT": "YYYY-MM-DD-HH24.MI.SS",		
+				"NLS_LANG"	: "AMERICAN_AMERICA.WE8MSWIN1252",	
+				"ORACLE_HOSTNAME": "{PH_DBSERVER_HN}",
+				"ORA_SDTZ"	: "{PH_TIMEZONE}"	
+			}
+		},
+		"1VM": {
+			"environmentvariables": {
+				"ERLANG_HOME": "D:\\Galaxis\\Program\\bin\\Erlang",
+				"GALAXIS_HOME": "D:\\Galaxis",
+				"GALAXIS_HOME_LOCAL": "C:\\Galaxis",
+				"GALAXIS_JAVA_HOME": "D:\\Galaxis\\Install\\JRE",
+				"GALAXIS_ORACLE_HOME": "C:\\Oracle\\Client32",
+				"GRIPS_HOME": "D:\\OnlineData",
+				"JAVA_HOME": "C:\\Program Files (x86)\\Java\\jdk-17",
+				"MODULUS_SERVER": "1VM",
+				"NLS_DATE_FORMAT": "YYYY-MM-DD-HH24.MI.SS",		
+				"NLS_LANG"	: "AMERICAN_AMERICA.WE8MSWIN1252",
+				"ORACLE_HOSTNAME": "{PH_DBSERVER_HN}",	
+				"ORA_SDTZ"	: "{PH_TIMEZONE}"	
+			}
+		},
+		"WS": {
+			"environmentvariables": {
+				"GALAXIS_HOME": "\\\\{PH_APPSERVER_HN}\\Galaxis",
+				"GRIPS_HOME": "D:\\OnlineData",
+				"NLS_DATE_FORMAT": "YYYY-MM-DD-HH24.MI.SS",		
+				"NLS_LANG"	: "AMERICAN_AMERICA.WE8MSWIN1252",
+				"MODULUS_SERVER": "WS",
+				"ORACLE_HOSTNAME": "{PH_DBSERVER_HN}",
+				"ORA_SDTZ"	: "{PH_TIMEZONE}"	
+			}
+		}
+	}
+}

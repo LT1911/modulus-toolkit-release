@@ -1,0 +1,272 @@
+{
+    "PH_SOCIETE": {
+        "name": "PH_SOCIETE",
+        "default": "MOD",
+        "description": "COD_SOCIETE of the casino."
+    },
+    "PH_ETABLISSEMENT": {
+        "name": "PH_ETABLISSEMENT",
+        "default": "TL",
+        "description": "COD_ETABLI of the casino."
+    },
+    "PH_CASINOID": {
+        "name": "PH_CASINOID",
+        "default": "999",
+        "description": "Casino ID."
+    },
+    "PH_GALAXIS_DB": {
+        "name": "PH_GALAXIS_DB",
+        "default": "GLX",
+        "description": "Name of the GALAXIS database."
+    },
+    "PH_JACKPOT_DB": {
+        "name": "PH_JACKPOT_DB",
+        "default": "JKP",
+        "description": "Name of the JACKPOT database."
+    },
+
+    "PH_DBSERVER_HN": {
+        "name": "PH_DBSERVER_HN",
+        "default": "ModulusDB",
+        "description": "Database server hostname."
+    },
+    "PH_DBSERVER_IP": {
+        "name": "PH_DBSERVER_IP",
+        "default": "192.168.1.20",
+        "description": "Database server IP."
+    },
+
+    "PH_APPSERVER_HN": {
+        "name": "PH_APPSERVER_HN",
+        "default": "ModulusAPP",
+        "description": "Application server hostname."
+    },
+    "PH_APPSERVER_IP": {
+        "name": "PH_APPSERVER_IP",
+        "default": "192.168.1.21",
+        "description": "Application server IP."
+    },
+
+    "PH_FSERVER_HN": {
+        "name": "PH_FSERVER_HN",
+        "default": "ModulusFS",
+        "description": "Floor server hostname."
+    },
+    "PH_FSERVER_IP": {
+        "name": "PH_FSERVER_IP",
+        "default": "192.168.1.22",
+        "description": "Floor server IP."
+    },
+    "PH_FSERVER_FLOOR_IP": {
+        "name": "PH_FSERVER_FLOOR_IP",
+        "default": "10.10.10.1",
+        "description": "Floor server FLOOR IP."
+    },
+
+    "PH_SP_USER": {
+        "name": "PH_SP_USER",
+        "default": "SITE",
+        "description": "Name of the SPECIFIC schema user."
+    },
+    "PH_SP_PASSWORD": {
+        "name": "PH_SP_PASSWORD",
+        "default": "6pBo04HH6ZBdlupJrG5xXA==",
+        "description": "Encrypted password of SPECIFIC schema user."
+    },
+
+    "PH_GALAXIS_USER": {
+        "name": "PH_GALAXIS_USER",
+        "default": "GALAXIS",
+        "description": "Name of the GALAXIS schema user."
+    },
+    "PH_GALAXIS_PASSWORD": {
+        "name": "PH_GALAXIS_PASSWORD",
+        "default": "xdazcgF4LvtMkDdZcbKIJQ",
+        "description": "Encrypted password of GALAXIS schema user."
+    },
+
+    "PH_MIS_USER": {
+        "name": "PH_MIS_USER",
+        "default": "MIS",
+        "description": "Name of the MIS schema user."
+    },
+    "PH_MIS_PASSWORD": {
+        "name": "PH_MIS_PASSWORD",
+        "default": "9N/g/CthvvnsO9zo/aPzzw==",
+        "description": "Encrypted password of MIS schema user."
+    },
+
+    "PH_SBC_USER": {
+        "name": "PH_SBC_USER",
+        "default": "AS_SBC",
+        "description": "Name of the AS_SBC schema user."
+    },
+    "PH_SBC_PASSWORD": {
+        "name": "PH_SBC_PASSWORD",
+        "default": "CCulmaykfb5xZb5FvmFsqw==",
+        "description": "Encrypted password of AS_SBC schema user."
+    },
+
+    "PH_CLDB_USER": {
+        "name": "PH_CLDB_USER",
+        "default": "AS_CLDB",
+        "description": "Name of the AS_CLDB schema user."
+    },
+    "PH_CLDB_PASSWORD": {
+        "name": "PH_CLDB_PASSWORD",
+        "default": "T0rz9o033JEvAa2WRluxnw==",
+        "description": "Encrypted password of AS_CLDB schema user."
+    },
+
+    "PH_CONFIG_INTERFACE_USER": {
+        "name": "PH_CONFIG_INTERFACE_USER",
+        "default": "AS_CONFIG_INTERFACE",
+        "description": "Name of the AS_CONFIG_INTERFACE schema user."
+    },
+    "PH_CONFIG_INTERFACE_PASSWORD": {
+        "name": "PH_CONFIG_INTERFACE_PASSWORD",
+        "default": "T0rz9o033JEvAa2WRluxnw==",
+        "description": "Encrypted password of AS_CONFIG_INTERFACE schema user."
+    },
+
+    "PH_SPA_USER": {
+        "name": "PH_SPA_USER",
+        "default": "SPA",
+        "description": "Name of the SPA schema user."
+    },
+    "PH_SPA_PASSWORD": {
+        "name": "PH_SPA_PASSWORD",
+        "default": "caJajClmtHLrfkJb8sij/w==",
+        "description": "Encrypted password of SPA schema user."
+    },
+
+    "PH_MKTDTM_USER": {
+        "name": "PH_MKTDTM_USER",
+        "default": "MKTDTM",
+        "description": "Name of the MKTDTM schema user."
+    },
+    "PH_MKTDTM_PASSWORD": {
+        "name": "PH_MKTDTM_PASSWORD",
+        "default": "bX0zQxVOnrsjkt/pINzRlQ==",
+        "description": "Encrypted password of MKTDTM schema user."
+    },
+
+    "PH_MESSENGER_USER": {
+        "name": "PH_MESSENGER_USER",
+        "default": "MESSENGER",
+        "description": "Name of the MESSENGER schema user."
+    },
+    "PH_MESSENGER_PASSWORD": {
+        "name": "PH_MESSENGER_PASSWORD",
+        "default": "PIyl8U7608CgwF2g09f3+A==",
+        "description": "Encrypted(?) password of MESSENGER schema user."
+    },
+
+    "PH_QPCASH_USER": {
+        "name": "PH_QPCASH_USER",
+        "default": "QPCASH",
+        "description": "Name of the QPCASH schema user."
+    },
+    "PH_QPCASH_PASSWORD": {
+        "name": "PH_QPCASH_PASSWORD",
+        "default": "h6jrLfCyECr1RPVlNbvXhQ==",
+        "description": "Encrypted password of QPCASH schema user."
+    },
+
+    "PH_TBL_USER": {
+        "name": "PH_TBL_USER",
+        "default": "TBL",
+        "description": "Name of the TBL schema user."
+    },
+    "PH_TBL_PASSWORD": {
+        "name": "PH_TBL_PASSWORD",
+        "default": "6/exUV/r/O8kK6KgT4X/vQ==",
+        "description": "Encrypted password of TBL schema user."
+    },
+
+    "PH_ALRMSRV_PASSWORD": {
+        "name": "PH_ALRMSRV_PASSWORD",
+        "default": "GgEJime4b75SdoxQrIdxdQ==",
+        "description": "Encrypted password of ALRMSRV schema user."
+    },
+    "PH_TRNSSRV_PASSWORD": {
+        "name": "PH_TRNSSRV_PASSWORD",
+        "default": "d/kGYMcpSt0eZhsNN+QALQ==",
+        "description": "Encrypted password of TRNSSRV schema user."
+    },
+
+    "PH_AML_USER": {
+        "name": "PH_AML_USER",
+        "default": "AML",
+        "description": "Name of the AML schema user."
+    },
+    "PH_AML_PASSWORD": {
+        "name": "PH_AML_PASSWORD",
+        "default": "m5/D/+hqDMFM+TDOGlB1cA==",
+        "description": "Encrypted password of AML schema user."
+    },
+
+    "PH_AUTH_USER": {
+        "name": "PH_AUTH_USER",
+        "default": "AS_AUTH",
+        "description": "Name of the AS_AUTH schema user."
+    },
+    "PH_AUTH_PASSWORD": {
+        "name": "PH_AUTH_PASSWORD",
+        "default": "T0rz9o033JEvAa2WRluxnw==",
+        "description": "Encrypted password of AS_AUTH schema user."
+    },
+
+    "PH_SLOTEXP_SCHEMA": {
+        "name": "PH_SLOTEXP_SCHEMA",
+        "default": "SLOTEXP",
+        "description": "Name of the SLOTEXP schema."
+    },
+
+    "PH_IPSEC": {
+        "name": "PH_IPSEC",
+        "default": "15666",
+        "description": "Setting for IPSEC [1555=no IPSEC / 15666=active IPSEC]"
+    },
+    "PH_CASHLESSLEVEL": {
+        "name": "PH_CASHLESSLEVEL",
+        "default": "2",
+        "description": "Setting for CASHLESSLEVEL [0=no cashless / 1=only database connection / 2=complete (database+terminals)]"
+    },
+    "PH_AUTH_PIN_REQ": {
+        "name": "PH_AUTH_PIN_REQ",
+        "default": "false",
+        "description": "Setting for PinRequired in AuthenticationService.ini [true=pin required / false=no pin required]"
+    },
+    "PH_AUTH_INACTIVITY": {
+        "name": "PH_AUTH_INACTIVITY",
+        "default": "60",
+        "description": "Setting for AllowedInactivityPeriod in AuthenticationService.ini [in seconds, default=60]"
+    },
+    "PH_CAWA_PURSELIMIT": {
+        "name": "PH_CAWA_PURSELIMIT",
+        "default": "10000",
+        "description": "Setting for upperPurseLimit in CashWalletService.ini [in currency, default=10000]"
+    },
+
+    "PH_RFID_BLOWFISH": {
+        "name": "PH_RFID_BLOWFISH",
+        "default": "1MNZ1obhhiDhP4zc1rIv2Qa+4ESGyJO94bTt7txlhZU=",
+        "description": "Setting for <BlowfishKey> in RFIDCardKeys.xml"
+    },
+    "PH_RFID_READKEY_MAD": {
+        "name": "PH_RFID_READKEY_MAD",
+        "default": "uAUc8/dyBJ4mtfcG9aV1zQ==",
+        "description": "Setting for <ReadKey_Mad> in RFIDCardKeys.xml"
+    },
+    "PH_RFID_WRITEKEY_MAD": {
+        "name": "PH_RFID_WRITEKEY_MAD",
+        "default": "tMvBcO9a0wy3tomAVgnkPw==",
+        "description": "Setting for <WriteKey_Mad> in RFIDCardKeys.xml"
+    },
+    "PH_REP_ADMIN_HO": {
+        "name": "PH_REP_ADMIN_HO",
+        "default": "REP_ADMIN_HO",
+        "description": "Setting for <HeadOfficeRepAdminSchema> in CasinoSynchronization-Settings.config"
+    }
+}

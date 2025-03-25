@@ -1,0 +1,202 @@
+{
+    "general_settings": {
+		"info": "Modulus Templates 02.08.2024",
+		"system": "3VM",
+		"user": "Administrator",
+		"password": "-",
+		"timezone": "Europe/Vienna",
+		"specifics": {
+			"societ": "MOD",
+			"etabli": "TL",
+			"sp_schema": "SITE",
+			"longname": "MOD LAB Template",
+			"shortname": "Lab Template",
+			"casinoID": 999,
+			"CAWA": true,
+			"IPSEC": true,
+			"Jackpot": true,
+			"SRADDINDB": false,
+			"R4R": true
+		},
+		"databases": {
+			"GLX_DB": "GLX",
+			"JKP_DB": "JKP"
+		},
+		"database_users": {
+			"security": "as_security",
+			"dbx":      "as_dbx",
+			"specific": "site"
+		},
+		"database_credentials": {
+			"security": "",
+			"dbx":      "",
+			"specific": ""
+		}
+    },
+    "servers": [
+        {
+			"name": "DB",
+			"hostname": "ModulusDB",
+			"networkAdapters": [
+				{
+					"AdapterName": "OFFICE",
+					"IPAddress": "192.168.1.20",
+					"SubnetMask": "255.255.0.0",
+					"DefaultGateway": "",
+					"DNS": [
+						"",
+						""
+					],
+					"VLAN": null,
+					"DHCPEnabled": false
+				},
+				{
+					"AdapterName": "MODULUS",
+					"IPAddress": "192.168.0.120",
+					"SubnetMask": "255.255.255.0",
+					"DefaultGateway": "192.168.0.1",
+					"DNS": [
+						"",
+						""
+					],
+					"VLAN": null,
+					"DHCPEnabled": false
+				}
+			]
+        },
+        {
+			"name": "APP",
+			"hostname": "ModulusAPP",
+			"networkAdapters": [
+				{
+					"AdapterName": "OFFICE",
+					"IPAddress": "192.168.1.21",
+					"SubnetMask": "255.255.0.0",
+					"DefaultGateway": "",
+					"DNS": [
+						"",
+						""
+					],
+					"VLAN": null,
+					"DHCPEnabled": false
+				},
+				{
+					"AdapterName": "MODULUS",
+					"IPAddress": "192.168.0.121",
+					"SubnetMask": "255.255.255.0",
+					"DefaultGateway": "192.168.0.1",
+					"DNS": [
+						"",
+						""
+					],
+					"VLAN": null,
+					"DHCPEnabled": false
+				}
+			]
+        },
+		{
+			"name": "FS",
+			"hostname": "ModulusFS",
+			"networkAdapters": [
+				{
+					"AdapterName": "OFFICE",
+					"IPAddress": "192.168.1.22",
+					"SubnetMask": "255.255.0.0",
+					"DefaultGateway": "",
+					"DNS": [
+						"",
+						""
+					],
+					"VLAN": null,
+					"DHCPEnabled": false
+				},
+				{
+					"AdapterName": "FLOOR",
+					"IPAddress": "10.10.10.1",
+					"SubnetMask": "255.255.0.0",
+					"DefaultGateway": "",
+					"DNS": [
+					  "",
+					  ""
+					],
+					"VLAN": null,
+					"DHCPEnabled": false
+				},
+				{
+					"AdapterName": "MODULUS",
+					"IPAddress": "192.168.0.122",
+					"SubnetMask": "255.255.255.0",
+					"DefaultGateway": "192.168.0.1",
+					"DNS": [
+						"",
+						""
+					],
+					"VLAN": null,
+					"DHCPEnabled": false
+				}
+			],
+			"DHCPranges": {
+				"CMOD": {
+					"from": "10.10.10.10",
+					"to":   "10.10.12.254"
+				},
+				"MDC": {
+					"from": "10.10.13.1",
+					"to":   "10.10.13.254"
+				}
+			}
+        },
+		{
+			"name": "1VM",
+			"hostname": "Modulus1VM",
+			"networkAdapters": [
+				{
+					"AdapterName": "OFFICE",
+					"IPAddress": "192.168.1.23",
+					"SubnetMask": "255.255.0.0",
+					"DefaultGateway": "",
+					"DNS": [
+						"",
+						""
+					],
+					"VLAN": null,
+					"DHCPEnabled": false
+				},
+				{
+					"AdapterName": "FLOOR",
+					"IPAddress": "10.10.10.1",
+					"SubnetMask": "255.255.0.0",
+					"DefaultGateway": "",
+					"DNS": [
+					  "",
+					  ""
+					],
+					"VLAN": null,
+					"DHCPEnabled": false
+				},
+				{
+					"AdapterName": "MODULUS",
+					"IPAddress": "192.168.0.123",
+					"SubnetMask": "255.255.255.0",
+					"DefaultGateway": "192.168.0.1",
+					"DNS": [
+						"",
+						""
+					],
+					"VLAN": null,
+					"DHCPEnabled": false
+				}
+			],
+			"DHCPranges": {
+				"CMOD": {
+					"from": "10.10.10.10",
+					"to":   "10.10.12.254"
+				},
+				"MDC": {
+					"from": "10.10.13.1",
+					"to":   "10.10.13.254"
+				}
+			}
+        }
+      ]
+}
