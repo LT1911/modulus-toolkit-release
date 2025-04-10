@@ -131,7 +131,7 @@ try {
 }
 
 # --- Step 8: Cleanup ---
-Remove-Item $tempArchive -Force
+#Remove-Item $tempArchive -Force
 Remove-Item $extractPath"\modulus-toolkit\" -Recurse -Force
 
 Write-Host "Update complete. Please restart your PowerShell session or run 'Import-Module $moduleName -Force' to reload the module."
