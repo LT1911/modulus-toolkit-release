@@ -102,15 +102,7 @@ function Install-Grafana-Online {
     $uri     = "https://storage.googleapis.com/cloud-onboarding/alloy/scripts/install-windows.ps1"
 
     try {
-        Invoke-WebRequest -Uri $uri -OutFile $outFile 
-    
-        & powershell -executionpolicy Bypass -File $outFile `
-            -GCLOUD_HOSTED_METRICS_URL "https://prometheus-prod-24-prod-eu-west-2.grafana.net/api/prom/push" `
-            -GCLOUD_HOSTED_METRICS_ID "1786329" `
-            -GCLOUD_SCRAPE_INTERVAL "60s" `
-            -GCLOUD_HOSTED_LOGS_URL "https://logs-prod-012.grafana.net/loki/api/v1/push" `
-            -GCLOUD_HOSTED_LOGS_ID "992451" `
-            -GCLOUD_RW_API_KEY "glc_eyJvIjoiMTIxOTAzNSIsIm4iOiJzdGFjay0xMDM0NjcxLWludGVncmF0aW9uLWFjY2VwdGFuY2UtYXBwIiwiayI6IjNUMzF6Z2NYMDJubjZ4WjRvMjlWQllLOSIsIm0iOnsiciI6InByb2QtZXUtd2VzdC0yIn19"
+        #removed because of public repo, will be handled by encrypted blob in future
     } catch {
         Write-Log "ERROR during Alloy installation: $($_.Exception.Message)"
     } finally {
