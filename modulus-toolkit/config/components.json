@@ -1,0 +1,763 @@
+{   
+    "databases": [ 
+        {
+            "name": "GLX",
+            "installed": false,
+            "version": "-",
+            "path": "G:/Oracle/GLX/",
+            "binary": "D:/Oracle/ora19c/bin/oracle.exe",
+            "service": "OracleServiceGLX",
+            "configFiles": [
+                {
+                    "name": "PFILE",
+                    "path": "D:/Oracle/Ora19c/database/initGLX.ORA",
+                    "description": "The PFILE contains static initialization parameters for starting an Oracle instance. It is a plain text file that can be edited manually."
+                },                    
+                {
+                    "name": "SPFILE",
+                    "path": "D:/Oracle/Ora19c/database/SPFILEGLX.ORA",
+                    "description": "The SPFILE is a binary version of the PFILE and is the preferred file for starting an Oracle instance because it allows for dynamic parameter changes that persist across startups."
+                },
+                {
+                    "name": "ORAPWD ",
+                    "path": "D:/Oracle/Ora19c/database/PWDGLX.ORA",
+                    "description": "Contains the passwords for privileged database users such as SYS and SYSDBA. This file is needed for remote administration and certain startup operations."
+                },
+                {
+                    "name": "alert_log",
+                    "path": "D:/Oracle/diag/rdbms/glx/glx/trace/alert_glx.log",
+                    "description": "A text file that logs significant events related to the database instance, such as startup, shutdown, and errors."
+                },
+                {
+                    "name": "control_file_01",
+                    "path": "G:/ORACLE/GLX/CONTROLFILE/O1_MF_KT3M9ONL_.CTL",
+                    "description": "The control file maintains metadata about the database, such as database name, file locations, and backup information. It is essential for the instance to operate."
+                },
+                {
+                    "name": "control_file_02",
+                    "path": "H:/ORACLE/GLX/CONTROLFILE/O1_MF_KT3M9OQL_.CTL",
+                    "description": "The control file maintains metadata about the database, such as database name, file locations, and backup information. It is essential for the instance to operate."
+                },
+                {
+                    "name": "triggermemberdataserver.properties",
+                    "path": "G:/Oracle/GLX/triggermemberdataserver.properties",
+                    "description": "Trigger configuration file."
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "JKP",
+            "installed": false,
+            "version": "-",
+            "path": "F:/Oracle/JKP/",
+            "binary": "D:/Oracle/ora19c/bin/oracle.exe",
+            "service": "OracleServiceJKP",
+            "configFiles": [
+                {
+                    "name": "PFILE",
+                    "path": "D:/Oracle/Ora19c/database/initJKP.ORA",
+                    "description": "The PFILE contains static initialization parameters for starting an Oracle instance. It is a plain text file that can be edited manually."
+                },                    
+                {
+                    "name": "SPFILE",
+                    "path": "D:/Oracle/Ora19c/database/SPFILEJKP.ORA",
+                    "description": "The SPFILE is a binary version of the PFILE and is the preferred file for starting an Oracle instance because it allows for dynamic parameter changes that persist across startups."
+                },
+                {
+                    "name": "ORAPWD ",
+                    "path": "D:/Oracle/Ora19c/database/PWDJKP.ORA",
+                    "description": "Contains the passwords for privileged database users such as SYS and SYSDBA. This file is needed for remote administration and certain startup operations."
+                },
+                {
+                    "name": "alert_log",
+                    "path": "D:/Oracle/diag/rdbms/jkp/jkp/trace/alert_jkp.log",
+                    "description": "A text file that logs significant events related to the database instance, such as startup, shutdown, and errors."
+                },
+                {
+                    "name": "control_file_01",
+                    "path": "F:/ORACLE/JKP/CONTROLFILE/O1_MF_KT3OSFP4_.CTL",
+                    "description": "The control file maintains metadata about the database, such as database name, file locations, and backup information. It is essential for the instance to operate."
+                },
+                {
+                    "name": "control_file_02",
+                    "path": "H:/ORACLE/JKP/CONTROLFILE/O1_MF_KT3OSFRN_.CTL",
+                    "description": "The control file maintains metadata about the database, such as database name, file locations, and backup information. It is essential for the instance to operate."
+                }
+            ],
+            "prerequisites": []
+        }
+    ],
+    "tools": [
+        {
+            "name": "Oracle Database Home",
+            "installed": false,
+            "version": "-",
+            "path": "D:/Oracle/ora19c/",
+            "binary": "D:/Oracle/Ora19c/bin/oracle.exe",
+            "service": "",
+            "configFiles": [
+                {
+                    "name": "listener.ora",
+                    "path": "D:/Oracle/Ora19c/network/admin/listener.ora",
+                    "description": "Configures the Oracle Net listener, which manages incoming client connections to the database. It specifies protocols, ports, and service handlers for connecting to the database instance(s)."
+                },                    
+                {
+                    "name": "sqlnet.ora",
+                    "path": "D:/Oracle/Ora19c/network/admin/sqlnet.ora",
+                    "description": "Configures Oracle Net client and server parameters, including encryption, timeouts, authentication, and tracing. It also determines how the database handles network connections."
+                },
+                {
+                    "name": "tnsnames.ora ",
+                    "path": "D:/Oracle/Ora19c/network/admin/tnsnames.ora",
+                    "description": "Defines the network service names that map to specific Oracle database connections. It allows client applications to connect to databases using easy-to-understand aliases instead of full connection strings."
+                },
+                {
+                    "name": "replicatedscope.ora",
+                    "path": "D:/Oracle/Ora19c/network/admin/replicatedscope.ora",
+                    "description": "Additional .ora file for replicated scope."
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "Oracle Client Home (32-bit)",
+            "installed": false,
+            "version": "-",
+            "path": "C:/Oracle/client32/",
+            "binary": "C:/Oracle/client32/sqlplus.exe",
+            "service": "",
+            "configFiles": [                   
+                {
+                    "name": "sqlnet.ora",
+                    "path": "C:/Oracle/client32/network/admin/sqlnet.ora",
+                    "description": "Configures Oracle Net client and server parameters, including encryption, timeouts, authentication, and tracing. It also determines how the database handles network connections."
+                },
+                {
+                    "name": "tnsnames.ora ",
+                    "path": "C:/Oracle/client32/network/admin/tnsnames.ora",
+                    "description": "Defines the network service names that map to specific Oracle database connections. It allows client applications to connect to databases using easy-to-understand aliases instead of full connection strings."
+                },
+                {
+                    "name": "replicatedscope.ora",
+                    "path": "C:/Oracle/client32/network/admin/replicatedscope.ora",
+                    "description": "Additional .ora file for replicated scope."
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "Oracle SQL Developer",
+            "installed": false,
+            "version": "-",
+            "path": "D:/Oracle/sqldeveloper/",
+            "binary": "D:/Oracle/sqldeveloper/sqldeveloper.exe",
+            "service": "",
+            "configFiles": [],
+            "prerequisites": []
+        },
+        {
+            "name": "Oracle SQLcl",
+            "installed": false,
+            "version": "-",
+            "path": "D:/Oracle/sqlcl/bin/",
+            "binary": "D:/Oracle/sqlcl/bin/sql.exe",
+            "service": "",
+            "configFiles": [],
+            "prerequisites": []
+        },
+        {
+            "name": "7-Zip",
+            "installed": false,
+            "version": "-",
+            "path": "C:/Program Files/7-Zip/7z.exe",
+            "binary": "C:/Program Files/7-Zip/7z.exe",
+            "service": "",
+            "configFiles": [],
+            "prerequisites": []
+        },
+        {
+            "name": "Notepad++",
+            "installed": false,
+            "version": "-",
+            "path": "C:/Program Files/Notepad++/",
+            "binary": "C:/Program Files/Notepad++/notepad++.exe",
+            "service": "",
+            "configFiles": [],
+            "prerequisites": []
+        },
+        {
+            "name": "NewDMM",
+            "installed": false,
+            "version": "-",
+            "path": "I:/Tools/NewDMM/",
+            "binary": "I:/Tools/NewDMM/NewDMM.exe",
+            "service": "",
+            "configFiles": [],
+            "prerequisites": []
+        },
+        {
+            "name": "FloorPlanDesigner",
+            "installed": false,
+            "version": "-",
+            "path": "I:/Tools/FloorPlanDesigner/",
+            "binary": "I:/Tools/FloorPlanDesigner/Floor Plan Designer.exe",
+            "service": "",
+            "configFiles": [],
+            "prerequisites": []
+        },
+        {
+            "name": "FloorPlanGenerator",
+            "installed": false,
+            "version": "-",
+            "path": "I:/Tools/FloorPlanGenerator/",
+            "binary": "I:/Tools/FloorPlanGenerator/FloorPlanGenerator.exe",
+            "service": "",
+            "configFiles": [],
+            "prerequisites": []
+        },
+        {
+            "name": "CleanRegistry",
+            "installed": false,
+            "version": "-",
+            "path": "I:/Tools/",
+            "binary": "I:/Tools/CleanRegistry.exe",
+            "service": "",
+            "configFiles": [],
+            "prerequisites": []
+        },
+        {
+            "name": "QueryBuilder",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/",
+            "binary": "D:/OnlineData/bin/qb.exe",
+            "service": "",
+            "configFiles": [
+                {
+                    "name": "qb.cfg",
+                    "path": "D:/OnlineData/cfg/qb.cfg",
+                    "description": "QueryBuilder configuration file."
+                }  
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "GameThemeSetupMigration",
+            "installed": false,
+            "version": "-",
+            "path": "D:/Galaxis/Program/Tools/GameThemeSetupMigrationApp/",
+            "binary": "D:/Galaxis/Program/Tools/GameThemeSetupMigrationApp/GameThemeSetupMigrationApp.exe",
+            "service": "",
+            "configFiles": [],
+            "prerequisites": ["Galaxis"]
+        }
+    ],
+    "modules": [ 
+        {
+            "name": "Galaxis/SYSTM",
+            "installed": false,
+            "version": "-",
+            "path": "D:/Galaxis/",
+            "binary": "D:/Galaxis/Program/bin/BackOfficeSlotOperation.exe",
+            "service": "GalaxisStartupService",
+            "configFiles": [
+                {
+                    "name": "gamedaychange.properties",
+                    "path": "D:/Galaxis/Application/Control/Service/GameDayChange/Current/gamedaychange.properties",
+                    "description": "GDC config file."
+                },
+                {
+                    "name": "alarmserver.properties",
+                    "path": "D:/Galaxis/Application/OnLine/AlarmServer/Current/alarmserver.properties",
+                    "description": "ALRMSRV configuration file."
+                },
+                {
+                    "name": "transactionserver.properties",
+                    "path": "D:/Galaxis/Application/OnLine/TransactionServer/Current/transactionserver.properties",
+                    "description": "TRNSSSRV configuration file."
+                },
+                {
+                    "name": "smserv3configuration.bat",
+                    "path": "D:/Galaxis/Application/OnLine/SlotMachineServer/Current/smserv3configuration.bat",
+                    "description": "FES configuration GUI."
+                },
+                {
+                    "name": "GLXiniConfigCurrent",
+                    "path": "D:/Galaxis/Application/Common/Config/Current/GLX.ini",
+                    "description": "GLX.ini #1"
+                },
+                {
+                    "name": "GLXiniCurrent",
+                    "path": "D:/Galaxis/Application/OnLine/AlarmServer/Current/alarmserver.properties",
+                    "description": "GLX.ini #2"
+                },
+                {
+                    "name": "AddressBook.xml",
+                    "path": "D:/Galaxis/Program/Common/AddressBook.xml",
+                    "description": ""
+                },
+                {
+                    "name": "Aml.ini",
+                    "path": "D:/Galaxis/Program/Common/Aml.ini",
+                    "description": ""
+                },
+                {
+                    "name": "AuthenticationService.ini",
+                    "path": "D:/Galaxis/Program/Common/AuthenticationService.ini",
+                    "description": ""
+                },
+                {
+                    "name": "Bus.ini",
+                    "path": "D:/Galaxis/Program/Common/Bus.ini",
+                    "description": ""
+                },
+                {
+                    "name": "Bus.ini",
+                    "path": "D:/Galaxis/Program/Common/Bus.ini",
+                    "description": ""
+                },
+                {
+                    "name": "BusHO.ini",
+                    "path": "D:/Galaxis/Program/Common/BusHO.ini",
+                    "description": ""
+                },
+                {
+                    "name": "CashWalletManager.ini",
+                    "path": "D:/Galaxis/Program/Common/CashWalletManager.ini",
+                    "description": ""
+                },
+                {
+                    "name": "CashWalletService.ini",
+                    "path": "D:/Galaxis/Program/Common/CashWalletService.ini",
+                    "description": ""
+                },
+                {
+                    "name": "Database.ini",
+                    "path": "D:/Galaxis/Program/Common/Database.ini",
+                    "description": ""
+                },
+                {
+                    "name": "MarketingDatamart.ini",
+                    "path": "D:/Galaxis/Program/Common/MarketingDatamart.ini",
+                    "description": ""
+                },
+                {
+                    "name": "Messenger.ini",
+                    "path": "D:/Galaxis/Program/Common/Messenger.ini",
+                    "description": ""
+                },
+                {
+                    "name": "QPonCash.ini",
+                    "path": "D:/Galaxis/Program/Common/QPonCash.ini",
+                    "description": ""
+                },
+                {
+                    "name": "Report.ini",
+                    "path": "D:/Galaxis/Program/Common/Report.ini",
+                    "description": ""
+                },
+                {
+                    "name": "SlotDataExporter.ini",
+                    "path": "D:/Galaxis/Program/Common/SlotDataExporter.ini",
+                    "description": ""
+                },
+                {
+                    "name": "TBL.ini",
+                    "path": "D:/Galaxis/Program/Common/TBL.ini",
+                    "description": ""
+                },
+                {
+                    "name": "triggermemberdataserver.properties",
+                    "path": "D:/Galaxis/Program/Common/triggermemberdataserver.properties",
+                    "description": ""
+                },
+                {
+                    "name": "AmlService_appsettings.json",
+                    "path": "D:/Galaxis/Program/bin/AmlService/appsettings.json",
+                    "description": ""
+                },
+                {
+                    "name": "GalaxisAPI_appsettings.json",
+                    "path": "D:/Galaxis/Program/bin/GalaxisAPI/appsettings.json",
+                    "description": ""
+                },
+                {
+                    "name": "LicenseService_appsettings.json",
+                    "path": "D:/Galaxis/Program/bin/LicenseService/appsettings.json",
+                    "description": ""
+                },
+                {
+                    "name": "NotificationService_appsettings.json",
+                    "path": "D:/Galaxis/Program/bin/NotificationService/appsettings.json",
+                    "description": ""
+                },
+                {
+                    "name": "TableSetupService_appsettings.json",
+                    "path": "D:/Galaxis/Program/bin/TableSetupService/appsettings.json",
+                    "description": ""
+                },
+                {
+                    "name": "nginx.conf",
+                    "path": "D:/Galaxis/Program/bin/nginx/conf/nginx.conf",
+                    "description": ""
+                },
+                {
+                    "name": "reverse-proxy.conf",
+                    "path": "D:/Galaxis/Program/bin/nginx/modulus/reverse-proxy.conf",
+                    "description": ""
+                },
+                {
+                    "name": "public-api-reverse-proxy.conf",
+                    "path": "D:/Galaxis/Program/bin/nginx/modulus/public-api-reverse-proxy.conf",
+                    "description": ""
+                },
+                {
+                    "name": "CasinoSynchronization-Settings.config",
+                    "path": "D:/Galaxis/Program/bin/CasinoSynchronizationService/Config/CasinoSynchronization-Settings.config",
+                    "description": ""
+                },
+                {
+                    "name": "CaWa-Settings.config",
+                    "path": "D:/Galaxis/Program/bin/CasinoSynchronizationService/Config/CaWa-Settings.config",
+                    "description": ""
+                },
+                {
+                    "name": "ConnectionStrings-Settings.config",
+                    "path": "D:/Galaxis/Program/bin/CasinoSynchronizationService/Config/ConnectionStrings-Settings.config",
+                    "description": ""
+                },
+                {
+                    "name": "Marketing-Settings.config",
+                    "path": "D:/Galaxis/Program/bin/CasinoSynchronizationService/Config/Marketing-Settings.config",
+                    "description": ""
+                },
+                {
+                    "name": "SmibNotification-Settings.config",
+                    "path": "D:/Galaxis/Program/bin/CasinoSynchronizationService/Config/SmibNotification-Settings.config",
+                    "description": ""
+                },
+                {
+                    "name": "JPSServer.bat",
+                    "path": "D:/Galaxis/Program/StarSlots/JPSServer.bat",
+                    "description": ""
+                },
+                {
+                    "name": "SYSTM_config.json",
+                    "path": "D:/Galaxis/Web/SYSTM/assets/config.json",
+                    "description": ""
+                },
+                {
+                    "name": "PlayerAPP_config.json",
+                    "path": "D:/Galaxis/Web/PlayerApp/assets/config.json",
+                    "description": ""
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "OnlineData",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/bin/",
+            "binary": "D:/OnlineData/bin/pinit.exe",
+            "service": "pinit",
+            "configFiles": [
+                {
+                    "name": "inittab",
+                    "path": "D:/OnlineData/cfg/inittab",
+                    "description": ""
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "PlayWatch",
+            "installed": false,
+            "version": "-",
+            "path": "D:/PlayWatch/Process/",
+            "binary": "D:/PlayWatch/Process/Playwatch.exe",
+            "service": "pinit",
+            "configFiles": [
+                {
+                    "name": "PlayWatch.exe.config",
+                    "path": "D:/PlayWatch/Process/Playwatch.exe.config",
+                    "description": ""
+                },
+                {
+                    "name": "log4net.config",
+                    "path": "D:/PlayWatch/Process/log4net.config",
+                    "description": ""
+                },
+                {
+                    "name": "web.config",
+                    "path": "D:/PlayWatch/Website/web.config",
+                    "description": ""
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "DBX",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/Dbx/",
+            "binary": "D:/OnlineData/Dbx/bin/dbx.exe",
+            "service": "pinit",
+            "configFiles": [
+                {
+                "name": "jar",
+                "path": "D:/OnlineData/Dbx/dbConfig.jar",
+                "description": "Java executable to open config GUI."
+                }, 
+                {
+                "name": "dbprops",
+                "path": "D:/OnlineData/Dbx/etc/dbprops",
+                "description": "DBX process configuration file."
+                }    
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "SecurityServer",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/Server/",
+            "binary": "D:/OnlineData/Server/classes.jar",
+            "service": "pinit",
+            "configFiles": [
+                {
+                    "name": "Server.properties",
+                    "path": "D:/OnlineData/Server/Server.properties",
+                    "description": "SecurityServer process configuration file."
+                } 
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "JPChecksumCalculator",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/JPChecksumCalculator/",
+            "binary": "D:/OnlineData/JPChecksumCalculator/JPChecksumCalculator.exe",
+            "service": "pinit",
+            "configFiles": [
+                {
+                    "name": "JPChecksumCalculator.exe.config",
+                    "path": "D:/OnlineData/JPChecksumCalculator/JPChecksumCalculator.exe.config",
+                    "description": "JPCC configuration file."
+                },
+                {
+                    "name": "log4net.xml",
+                    "path": "D:/OnlineData/JPChecksumCalculator/log4net.xml",
+                    "description": "JPCC log4net file."
+                },
+                {
+                    "name": "jpcomponents.xml",
+                    "path": "D:/OnlineData/JPChecksumCalculator/jpcomponents.xml",
+                    "description": "List of UNC-paths to reach the files to check."
+                },
+                {
+                    "name": "systemdefinition.xml",
+                    "path": "D:/OnlineData/JPChecksumCalculator/systemdefinition.xml",
+                    "description": "Execpted overall checksum."
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "Jackpot Configuration",
+            "installed": false,
+            "version": "-",
+            "path": "C:/Program Files (x86)/Modulus/Jackpot Applications/",
+            "binary": "C:/Program Files (x86)/Modulus/Jackpot Applications/Configuration/JpConfiguration.exe",
+            "service": "",
+            "configFiles": [
+                {
+                    "name": "JPApplicationSettings.ini",
+                    "path": "C:/Program Files (x86)/Modulus/Jackpot Applications/Settings/JPApplicationSettings.ini",
+                    "description": "JP Configuration config file."
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "Jackpot Reporting",
+            "installed": false,
+            "version": "-",
+            "path": "C:/Program Files (x86)/Modulus/Jackpot Reporting/",
+            "binary": "C:/Program Files (x86)/Modulus/Jackpot Reporting/Reporting/JpReporting.exe",
+            "service": "",
+            "configFiles": [
+                {
+                    "name": "JPReportSettings.ini",
+                    "path": "C:/Program Files (x86)/Modulus/Jackpot Reporting/Settings/JPReportSettings.ini",
+                    "description": "JP Reporting config file."
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "SecurityServer Configuration",
+            "installed": false,
+            "version": "-",
+            "path": "C:/Program Files (x86)/Modulus/SecurityServer Configuration/",
+            "binary": "C:/Program Files (x86)/Modulus/SecurityServer Configuration/Config/SecurityServerConfiguration.exe",
+            "service": "",
+            "configFiles": [
+                {
+                    "name": "SecurityApplications.ini",
+                    "path": "C:/Program Files (x86)/Modulus/SecurityServer Configuration/Settings/SecurityApplicationSettings.ini",
+                    "description": "SecurityServer Configuration config file."
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "QueryBuilder",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/bin",
+            "binary": "D:/OnlineData/bin/qb.exe",
+            "service": "",
+            "configFiles": [
+                {
+                    "name": "qb.cfg",
+                    "path": "D:/OnlineData/cfg/qb.cfg",
+                    "description": "Query Builder configuration file."
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "Floorserver",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/",
+            "binary": "D:/OnlineData/bin/fsc.exe",
+            "service": "pinit",
+            "configFiles": [
+                {
+                    "name": "def.cfg",
+                    "path": "D:/OnlineData/cfg/def.cfg",
+                    "description": "FS def.cfg configuration file."
+                },
+                {
+                    "name": "ifd.cfg",
+                    "path": "D:/OnlineData/cfg/ifd.cfg",
+                    "description": "FS ifd.cfg configuration file."
+                },
+                {
+                    "name": "fscfg.tcl85",
+                    "path": "D:/OnlineData/bin/fscfg.tcl85",
+                    "description": "Floorserver configuration tcl."
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "CRYSTAL Control",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/bin/control/",
+            "binary": "D:/OnlineData/bin/control/ControlLauncher.exe",
+            "service": "pinit",
+            "configFiles": [
+                {
+                    "name": "ControlLauncher.exe.config",
+                    "path": "D:/OnlineData/bin/control/ControlLauncher.exe.config",
+                    "description": "Control configuration file."
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "CRYSTAL Floor Communication Service",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/CRYSTAL.Net/CRYSTAL Floor Communication Service/",
+            "binary": "D:/OnlineData/CRYSTAL.Net/CRYSTAL Floor Communication Service/CRYSTAL Floor Communication Service.exe",
+            "service": "pinit",
+            "configFiles": [
+                {
+                    "name": "CRYSTAL Floor Communication Service.exe",
+                    "path": "D:/OnlineData/CRYSTAL.Net/CRYSTAL Floor Communication Service/CRYSTAL Floor Communication Service.exe.config",
+                    "description": "CFCS.exe configuration file."
+                },
+                {
+                    "name": "log4net.xml",
+                    "path": "D:/OnlineData/CRYSTAL.Net/CRYSTAL Floor Communication Service/log4net.xml",
+                    "description": "CFCS Log configuration file"
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "Star Display Relay",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/Relay/",
+            "binary": "D:/OnlineData/Relay/Relay.exe",
+            "service": "pinit",
+            "configFiles": [
+                {
+                    "name": "TCPIPServerIn.xml",
+                    "path": "D:/OnlineData/Relay/Config/TCPIPServerIn.xml",
+                    "description": "Relay IN config file."
+                },
+                {
+                    "name": "TCPIPServerOut.xml",
+                    "path": "D:/OnlineData/Relay/Config/TCPIPServerOut.xml",
+                    "description": "Relay IN config file."
+                }
+            ],
+            "prerequisites": []
+        },
+        {
+            "name": "Reservation Agent",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/bin/",
+            "binary": "D:/OnlineData/bin/ReservationAGent.tbc",
+            "service": "pinit",
+            "configFiles": [],
+            "prerequisites": []
+        },
+        {
+            "name": "Qsched",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/bin/",
+            "binary": "D:/OnlineData/bin/qsched.tbc",
+            "service": "pinit",
+            "configFiles": [],
+            "prerequisites": []
+        },
+        {
+            "name": "Floor Messenger",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/bin/",
+            "binary": "D:/OnlineData/bin/FM.exe",
+            "service": "pinit",
+            "configFiles": [],
+            "prerequisites": []
+        },
+        {
+            "name": "nginx on Floorserver",
+            "installed": false,
+            "version": "-",
+            "path": "D:/OnlineData/nginx/",
+            "binary": "D:/OnlineData/nginx/nginx.exe",
+            "service": "nginx",
+            "configFiles": [
+                {
+                    "name": "reverse-proxy.conf",
+                    "path": "D:/OnlineData/nginx/modulus/reverse-proxy.conf",
+                    "description": "nginx configuration file."
+                }
+            ],
+            "prerequisites": []
+        } 
+    ]
+}

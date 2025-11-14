@@ -1,0 +1,12 @@
+{
+  "status": {
+    "legacy":   false,
+    "registry": false,
+    "msdtc":    false,
+    "restart":  false,
+    "sysprep":  false,
+    "disks":    false,
+    "NICs":     false,
+    "init":     false
+  }
+}

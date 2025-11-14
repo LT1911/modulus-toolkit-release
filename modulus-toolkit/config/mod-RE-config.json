@@ -1,0 +1,20 @@
+{
+"DB_HN":  "ModulusDB",
+"DB_IP":  "192.168.1.20",
+"APP_HN": "ModulusAPP",
+"APP_IP": "192.168.1.21",
+"FS_HN":  "ModulusFS",
+"FS_IP":  "192.168.1.22",
+"specifics": {
+	"societ": "MOD",
+	"etabli": "TL",
+	"sp_schema": "SITE",
+	"longname": "MOD LAB Template",
+	"shortname": "Lab Template",
+	"casinoID": 999
+},
+"databases": {
+	"GLX_DB": "GLX",
+	"JKP_DB": "JKP"
+}
+} 
