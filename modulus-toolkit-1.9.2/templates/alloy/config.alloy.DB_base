@@ -1,0 +1,142 @@
+prometheus.exporter.windows "integrations_windows_exporter" {
+  enabled_collectors = ["logical_disk"]
+}
+
+discovery.relabel "integrations_windows_exporter" {
+  targets = prometheus.exporter.windows.integrations_windows_exporter.targets
+
+  rule {
+    target_label = "job"
+    replacement  = "integrations/windows_exporter"
+  }
+  
+  rule {
+    target_label = "customer"
+	replacement  = "{{PH_CASINO_NAME}}"
+  }
+
+  rule {
+    target_label = "instance"
+    replacement  = constants.hostname
+  }
+}
+
+prometheus.scrape "integrations_windows_exporter" {
+  targets    = discovery.relabel.integrations_windows_exporter.output
+  forward_to = [prometheus.relabel.integrations_windows_exporter.receiver]
+  job_name   = "integrations/windows_exporter"
+}
+
+prometheus.relabel "integrations_windows_exporter" {
+  forward_to = [prometheus.remote_write.metrics_service.receiver]
+
+  rule {
+    source_labels = ["__name__"]
+    regex         = "(windows_logical_disk_free_bytes|windows_logical_disk_size_bytes)"
+    action        = "keep"
+  }
+}
+
+prometheus.exporter.oracledb "integrations_oracledb_glx" {
+  connection_string = "oracle://grafanau:{{PH_GRAFANAU_DB_PASSWORD}}@localhost:1521/glx"
+}
+
+discovery.relabel "integrations_oracledb_glx" {
+  targets = prometheus.exporter.oracledb.integrations_oracledb_glx.targets
+
+  rule {
+    target_label = "instance"
+    replacement  = "GLX"
+  }
+  
+  rule {
+    target_label = "customer"
+	replacement  = "{{PH_CASINO_NAME}}"
+  }
+
+  rule {
+    target_label = "server"
+    replacement  = constants.hostname
+  }
+
+  rule {
+    target_label = "job"
+    replacement  = "integrations/oracledb"
+  }
+}
+
+prometheus.scrape "integrations_oracledb_glx" {
+  targets         = discovery.relabel.integrations_oracledb_glx.output
+  forward_to      = [prometheus.relabel.integrations_oracledb_glx.receiver]
+  job_name        = "integrations/oracledb_glx"
+  scrape_interval = "5m0s"
+  scrape_timeout  = "1m0s"
+}
+
+prometheus.relabel "integrations_oracledb_glx" {
+  forward_to = [prometheus.remote_write.metrics_service.receiver]
+
+  rule {
+    source_labels = ["__name__"]
+    regex         = "(oracledb_up|oracledb_tablespace_used_percent|oracle_tablespace_size_bytes|oracle_tablespace_free_bytes|oracledb_tablespace_bytes|oracledb_tablespace_free|oracledb_tablespace_max_bytes)"
+    action        = "keep"
+  }
+}
+
+
+prometheus.exporter.oracledb "integrations_oracledb_jkp" {
+  connection_string = "oracle://grafanau:{{PH_GRAFANAU_DB_PASSWORD}}@localhost:1521/jkp"
+}
+
+discovery.relabel "integrations_oracledb_jkp" {
+  targets = prometheus.exporter.oracledb.integrations_oracledb_jkp.targets
+
+  rule {
+    target_label = "instance"
+    replacement  = "JKP"
+  }
+  
+  rule {
+    target_label = "customer"
+	replacement  = "{{PH_CASINO_NAME}}"
+  }
+
+  rule {
+    target_label = "server"
+    replacement  = constants.hostname  
+  }
+
+  rule {
+    target_label = "job"
+    replacement  = "integrations/oracledb"
+  }
+}
+
+prometheus.scrape "integrations_oracledb_jkp" {
+  targets         = discovery.relabel.integrations_oracledb_jkp.output
+  forward_to      = [prometheus.relabel.integrations_oracledb_jkp.receiver]
+  job_name        = "integrations/oracledb_jkp"
+  scrape_interval = "5m0s"
+  scrape_timeout  = "1m0s"
+}
+
+prometheus.relabel "integrations_oracledb_jkp" {
+  forward_to = [prometheus.remote_write.metrics_service.receiver]
+
+  rule {
+    source_labels = ["__name__"]
+    regex         = "(oracledb_up|oracledb_tablespace_used_percent|oracle_tablespace_size_bytes|oracle_tablespace_free_bytes|oracledb_tablespace_bytes|oracledb_tablespace_free|oracledb_tablespace_max_bytes)"
+    action        = "keep"
+  }
+}
+
+prometheus.remote_write "metrics_service" {
+  endpoint {
+    url = "https://prometheus-prod-24-prod-eu-west-2.grafana.net/api/prom/push"
+
+    basic_auth {
+      username = "1786329"
+      password = "glc_eyJvIjoiMTIxOTAzNSIsIm4iOiJzdGFjay0xMDM0NjcxLWludGVncmF0aW9uLW1vZHVsdWRiLXRlbXBsYXRlIiwiayI6InRrNGlhOXQ4OTh2MDhWTlFqUjlrMzBaRSIsIm0iOnsiciI6InByb2QtZXUtd2VzdC0yIn19"
+    }
+  }
+}

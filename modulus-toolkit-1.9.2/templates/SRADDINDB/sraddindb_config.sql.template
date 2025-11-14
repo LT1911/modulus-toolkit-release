@@ -1,0 +1,59 @@
+-- mpt ----------------------------- enter /config/{{FOLDER_ID}}/sraddindb/config.sql
+
+-- (@) Copyright by             | $Workfile:    $
+--     Grips Electronic Ges.m.b.H.   | $Revision: 9043 $
+
+-------------------------------------------------- preload defines with defaults
+
+@@..\module\srdb\config.sql
+@@..\sraddindb\version.sql
+
+define sraddin_recreate    = 'N'
+define install_id          = '{{FOLDER_ID}}'
+
+@@..\config&install_id\sraddindb\password.sql
+
+-------------------------------------------------------------- define new values
+
+define sraddin_db_id       = '&basicaddin_db_id'
+
+define sraddin_tbs_user    = '&basicaddin_tbs_user'
+define sraddin_tbs_index   = '&basicaddin_tbs_index'
+define sraddin_tbs_temp    = '&basicaddin_tbs_temp'
+
+define sraddin_user        = 'rep_admin_{{CASINO_NAME_LOWER}}'
+define sraddin_pwd         = '&sraddin_pwd'
+
+define rep_type            = 'mkt_rep'
+
+------------------------------------------------------------ define job defaults
+-- master_dist_col_data_interval: How often master call distribute_column_data in MINUTES
+define master_dist_col_data_interval = 5
+
+-- site_replication_interval: interval when rep should be revoked again in MINUTES.
+-- E.g. 30: Every half hour; 720 = twice a day: 12h, 24h.
+define site_replication_interval     = 1440
+
+-- site_site_offset: Offset of replication start between sites in MINUTES to avoid locking at master.
+-- E.g. if first site starts at 6 (site_replication_time), second site starts at
+-- 6:15, third at 6:30
+-- A good value is dependant of number of sites.
+define site_site_offset              = 15
+
+-------------------------------------------------------- overload module defines
+@@..\config&install_id\sraddindb&rep_type.\config.sql
+@@..\config\database&sraddin_db_id\config.sql
+
+define sraddin_data_dir  = '&db_data_dir&sid'
+define sraddin_alias     = '&tns_alias'
+define sraddin_sys_pwd   = '&sys_pwd'
+
+define srdb_user         = &sraddin_user
+define srdb_pwd          = &sraddin_pwd
+define srdb_alias        = &sraddin_alias
+
+define srdb_tbs_user     = &sraddin_tbs_user
+define srdb_tbs_index    = &sraddin_tbs_index
+define srdb_tbs_temp     = &sraddin_tbs_temp
+
+-- mpt ----------------------------- leave /config/{{FOLDER_ID}}/sraddindb/config.sql

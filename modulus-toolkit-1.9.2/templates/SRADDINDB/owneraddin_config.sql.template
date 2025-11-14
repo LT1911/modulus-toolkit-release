@@ -1,0 +1,40 @@
+-- mpt ------------------------- enter ./config/{{FOLDER_ID}}/owneraddindb/config.sql
+
+-------------------------------------------------- preload defines with defaults
+define owneraddin_recreate  = 'N'
+define install_id           = '{{FOLDER_ID}}'
+
+@@..\module\ownerdb\config.sql
+@@..\config&install_id\owneraddindb\password.sql
+@@..\config&install_id\basicaddindb\config.sql
+
+-------------------------------------------------------------- define new values
+
+define owneraddin_user      = 'mkt_owner_{{CASINO_NAME_LOWER}}'
+define owneraddin_pwd       = '&owneraddin_pwd'
+
+------------------------------------------------ defaults to basicaddin settings
+
+define owneraddin_db_id     = '&basicaddin_db_id'
+
+define owneraddin_tbs_user  = '&basicaddin_tbs_user'
+define owneraddin_tbs_index = '&basicaddin_tbs_index'
+define owneraddin_tbs_temp  = '&basicaddin_tbs_temp'
+
+-------------------------------------------------------- overload module defines
+
+@@..\config\database&owneraddin_db_id\config.sql
+
+define owneraddin_data_dir  = '&db_data_dir&sid'
+define owneraddin_alias     = '&tns_alias'
+define owneraddin_sys_pwd   = '&sys_pwd'
+
+define ownerdb_user         = '&owneraddin_user'
+define ownerdb_pwd          = '&owneraddin_pwd'
+define ownerdb_alias        = '&owneraddin_alias'
+
+define ownerdb_tbs_user     = '&owneraddin_tbs_user'
+define ownerdb_tbs_index    = '&owneraddin_tbs_index'
+define ownerdb_tbs_temp     = '&owneraddin_tbs_temp'
+
+-- mpt ------------------------- leave ./config/{{FOLDER_ID}}/owneraddindb/config.sql

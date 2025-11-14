@@ -1,0 +1,248 @@
+AFTER="300"
+FSLIST="{{PH_DBSERVER_HOSTNAME}}""{{PH_APPSERVER_HOSTNAME}}""{{PH_FSERVER_HOSTNAME}}"
+LASTFS="{{PH_FSERVER_HOSTNAME}}"
+MembersRefresh="15000"
+QBHEIGHT="1137"
+QBMAXIMIZED="1"
+QBPOSX="461"
+QBPOSY="335"
+QBWIDTH="1920"
+SETTO="600"
+TabRefresh="3000"
+currFld="Firmware"
+currSel="Active"
+fields={
+  0={
+    c="$aktiv""$debug""$LOCNAME""$SMDBID""$CR""$LOCTYPE""$SM_IF_TYPE""$SM_PROTOCOL_VERSION""$SM_MANUF"!format "$SM_CUR_NAME %.2f" [expr $DENOM/100.0]!"$MAX_BET""$SM_INFO_MAX_BET"!format "x%X" $SM_FLAGS!!format "x%X" $CL_FLAGS!"$MMCFG_ID""$MDC_FW_VERSION"!format "%04X" $M053f!"$G2S_CRC_FW""$MDC_BL_VERSION"!format "%04X" $M053e!"$CMOD_CRC_BL""$SM_IP_ADDR""$SMHWID""$LOCID""$MDCID""$MAC_ADDR"!clock format $doseit -format "%T %D"!!clock format $ltel -format "%T %D"!
+    f="CR""DENOM""GM""LOCID""LOCNAME""LOCTYPE""MDCID""MDC_BL_VERSION""MDC_FW_VERSION""SMDBID""SMHWID""SM_IF_TYPE""SM_IP_ADDR""SM_MANUF""SM_STATUS""TI""TO""aktiv""doseit""ltel""pcnt"
+    n="Firmware"
+    s="28""53""67""111""91""54""63""72""84""73""73""87""129""66""76""81""83""127""86""126""111""71""96""160""84""85""66""82"
+    t="A""Debug""LOCNAME""SMDBID""Credits""LOCTYPE""EGM IF""SAS Version""Manuf.""Denom""Max Bet""EGM Reported Max Bet""EGM FL Hex""CL FL Hex""Script ID""Firmware""FW CRC""G2S FW CRC""Bootloader""Bootl. CRC""CMOD BL CRC""IP Address""SMHWID""LOC ID""SMIB ID""SMIB MAC""Started""Last Sent"
+  }
+  1={
+    c="$aktiv""$LOCNAME""$SM_MANUF""$CR""$SM_IF_TYPE"!format "$SM_CUR_NAME %.2f" [expr $DENOM/100.0]!"$BILLVALIDATOR""expr $BI-$BI_S"!format "$SM_CUR_NAME %.2f" [expr ($BI-$BI_S)*$DENOM/100.0]!"expr $BI10-$BI10_S""expr $BI20-$BI20_S""expr $BI50-$BI50_S""expr $BI100-$BI100_S""expr $BI200-$BI200_S"!format "$SM_CUR_NAME %0.2f" [expr ((((($BI10-$BI10_S)+2*($BI20-$BI20_S)+5*($BI50-$BI50_S)+10*($BI100-$BI100_S)+20*($BI200-$BI200_S))*1000)/$DENOM)-$BI)*$DENOM/100.0]!"expr ($BI10-$BI10_S)+($BI20-$BI20_S)+($BI50-$BI50_S)+($BI100-$BI100_S)+($BI200-$BI200_S)""expr ($CNT_BILL_REJECTED-$CNT_BILL_REJECTED_S)"!format "%0.2f" [expr (((($BI10-$BI10_S)+($BI20-$BI20_S)+($BI50-$BI50_S)+($BI100-$BI100_S)+($BI200-$BI200_S))*100.0)/((($BI10-$BI10_S)+($BI20-$BI20_S)+($BI50-$BI50_S)+($BI100-$BI100_S)+($BI200-$BI200_S))+($CNT_BILL_REJECTED-$CNT_BILL_REJECTED_S)))]!
+    f="BI""BI10""BI100""BI1000""BI20""BI200""BI50""BI500""CL_BI""CNT_BILL_REJECTED""GM""LOCNAME""SMDBID""TI""TO""aktiv"
+    n="Bills"
+    s="20""65""52""63""60""66""62""93""101""48""50""43""41""52""99""66""62""84"
+    t="A""LOCNAME""Manuf.""Credits""EGM IF""Denom""Bill Type""Bill-In (Credits)""Bill-In (Currency)""BI10""BI20""BI50""BI100""BI200""Bill Audit""Accepted""Rejected""Accepted (%)"
+  }
+  10={
+    c="$aktiv""$LOCNAME""$SM_MANUF""$SM_IF_TYPE"!format "$SM_CUR_NAME %0.2f" [expr [format %u $DENOM].0 /100.0]!"$SM_NAME""$CR""expr $TI-$TI_S""expr $TO-$TO_S""expr $GM-$GM_S""expr $TI/($GM+1)"!format "%0.2f" [expr ($TI-$TO)*$DENOM/100.0]!!format "%0.2f" [expr $TO*100.0/($TI+1)]!"$SM_TPP"
+    n="Accounting"
+    s="27""65""51""67""69""115""82""84""89""95""83""98""99""93"
+    t="A""LOCNAME""Manuf.""IF Type""Denom""Game Type""Credits""Total-In""Total-Out""Games Played""Average Bet""Win""Act. Payout %""Theo. Payout %"
+  }
+  11={
+    c="$aktiv""$LOCNAME""$SMDBID""$CR""$PL_CARD_NR"!format "$SM_CUR_NAME %.2f" [expr $CL_PURSE1_BAL/100.0]!!format "$SM_CUR_NAME %.2f" [expr $CL_PURSE3_BAL/100.0]!"expr $CLI-$CLI_S""expr $CLO-$CLO_S""expr $CL_TI-$CL_TI_S""expr $CL_TO-$CL_TO_S""expr $CL_GM-$CL_GM_S""expr $CL_BI-$CL_BI_S"
+    f="CLI""CLO""CL_BI""CL_END_TIME""CL_GM""CL_PURSE1_BAL""CL_PURSE2_BAL""CL_PURSE3_BAL""CL_PURSE4_BAL""CL_START_TIME""CL_TI""CL_TO""CR""DENOM""LOCNAME""PL_CARD_NR""SMDBID""aktiv"
+    n="Cashless"
+    s="17""75""73""57""118""102""136""77""85""59""58""93""53"
+    t="A""LOCNAME""SMDBID""Credits""Card No.""Cash Purse (P1)""Promotional Purse (P3)""Cashless-In""Cashless-Out""Total-In""Total-Out""Games Played""Bill-In"
+  }
+  12={
+    c="$aktiv""$LOCNAME"!format "$SM_CUR_NAME %.2f" [expr $DENOM/100.0]!"expr $CR-$CR_S""expr $CREDITS_PLAYED-$CREDITS_PLAYED_S""expr $CREDITS_CASHED-$CREDITS_CASHED_S""$MAX_BET""$BET""expr $TI/($GM+1)""$PL_CARD_NR""$PL_NUMBER""$PL_RATING""$CARD_PL_TITLE""$PL_NAME_ON_CARD""$PL_TITLE""$PL_FIRST_NAME""$PL_NAME""$PL_HOME_TOWN""$PL_BIRTHDAY"!format "%.2f" [expr ($PL_POINTS-$PL_POINTS_S)/10000.0]!!format "%.2f" [expr ($A_BON-$A_BON_S)/10000.0]!!format "%.2f" [expr (($PL_POINTS-$PL_POINTS_S)+($A_BON-$A_BON_S))/10000.0]!"expr ($SM_STATUS>>22)&1""expr ($SM_STATUS>>23)&1""expr $TI-$TI_S""expr $TO-$TO_S"
+    f="A_BON""BON_C2P""BON_GPM""BON_PPM""BON_SMPM""CR""CREDITS_CASHED""CREDITS_PLAYED""END_TIME""GAMES_PLAYED""HP_CASHED""LOCNAME""PI_STATUS""PLAY_TIME""PL_CARD_NR""PL_FIRST_NAME""PL_HOME_CASINO""PL_HOME_TOWN""PL_HOST""PL_LANGUAGE""PL_LEVEL""PL_MULTIPLIER""PL_NAME""PL_POINTS""PL_SESSION_ST""PL_SEX""PL_TITLE""PULLS""SMDBID""START_TIME""TRANSACTION_REASON""aktiv"
+    n="Player Tracking"
+    s="31""77""74""56""89""96""80""56""64""161""96""67""129""97""114""130""102""98""153""158""154""96""110""87""59""59"
+    t="A""LOCNAME""Denom""Credits""Credits Played""Credits Cashed""Max Bet""Last Bet (CR)""Average Bet""Card No.""Player Number""PL Rating""PL Title on Card""PL Name on Card""Title""First Name""Last Name""Hometown""Birthday""Points At Session Start""Session Points""Total Points""HPGM""HPTI""Total-In""Total-Out"
+  }
+  13={
+    c="$aktiv""$LOCNAME""$SM_MANUF""$SM_IF_TYPE"!format "$SM_CUR_NAME %0.2f" [expr $DENOM/100.0]!"$CR""$PL_CARD_NR"!format "$SM_CUR_NAME %0.2f" [expr [format %u $MDC_PURSE_NPR].0 /100.0]!!format "$SM_CUR_NAME %0.2f" [expr [format %u $MDC_PURSE_PR].0 /100.0]!!format "$SM_CUR_NAME %0.2f" [expr [format %u $CL_PURSE1_BAL].0 /100.0]!!format "$SM_CUR_NAME %0.2f" [expr [format %u $CL_PURSE3_BAL].0 /100.0]!!format "$SM_CUR_NAME %0.2f" [expr [format %u $SAM_PURSE1].0 /100.0]!!format "$SM_CUR_NAME %0.2f" [expr [format %u $SAM_PURSE3].0 /100.0]!"$CL_TR_DIRECTION""$CL_TR_TYPE"
+    n="Purse Values"
+    s="22""88""51""72""57""56""136""84""100""105""109""108""110""120""75"
+    t="A""LOCNAME""Manuf.""IF""Denom""Credits""PL Card No.""SMIB P1""SMIB P3""Card P1""Card P3""SAM P1""SAM P3""Trans. Direction""Trans. Type"
+  }
+  14={
+    c="$aktiv""$LOCNAME""$SM_MANUF""expr ($SM_STATUS>>1)&1""expr ($SM_STATUS>>2)&1""expr ($SM_STATUS>>3)&1""expr ($SM_STATUS>>5)&1""expr ($SM_STATUS>>10)&1"!format "%.3fV DC" [expr $PS1_VOLTAGE/1000.0]!!format "%.3fV DC" [expr $PS2_VOLTAGE/1000.0]!"expr ($MDC_STATUS>>28)&1""expr ($MDC_STATUS>>29)&1"
+    n="Doors and Power"
+    s="17""63""46""91""72""55""74""70""100""92""99""74"
+    t="A""LOCNAME""Manuf.""Connectors In""EGM Power""Machine Door""Billbox Door""Logic Door""SMIB PFU1""SMIB PFU2""PFU1 Low""PFU2 Low"
+  }
+  17={
+    c="$aktiv""$LOCNAME""$SM_IP_ADDR""$SM_IF_TYPE"!clock format $doseit -format "%T %D"!!clock format $ltel -format "%T %D"!"$SMHWID"
+    n="ACM"
+    s="23""81""80""76""129""121""89"
+    t="A""LOCNAME""IP Address""IF""Started / Connected""Last Sent""Hardware ID"
+  }
+  18={
+    c="$aktiv""$LOCNAME""$SMDBID""$SM_MANUF""$SM_IF_TYPE""$SM_PROTOCOL_VERSION""$SM_NAME""$DENOM""$MG_DENOM""$MG_GAME_ID"
+    n="CMS Online Config"
+    s="18""60""72""44""74""78""150""104""115""86"
+    t="A""LOCNAME""SMDBID""Manuf.""EGM IF""SAS Version""Game Description""SMIB Acc. Denom""Multi-Game Denom""Multi-Game ID"
+  }
+  19={
+    c="$aktiv""$LOCNAME""$SMDBID""$LOCTYPE""$MDC_BL_VERSION""$MDC_FW_VERSION""$PKGA""$PKGC""$PKGD""$PKGJ""$PKGG""$PKGS"
+    n="CRYSTAL Package information"
+    s="18""70""70""70""120""120""120""120""120""120"
+    t="A""LOCNAME""SMDBID""LOCTYPE""Bootloader""Firmware""Application""Configuration""UserInterface""Jackpot""GeneralIdleShow""SessionIdleShow"
+  }
+  2={
+    c="$aktiv""$LOCNAME""$SM_MANUF""$SM_IF_TYPE"!clock format $ltel -format "%T"!"expr ($SM_STATUS>>1)&1""expr ($SM_STATUS>>2)&1""expr ($SM_STATUS>>3)&1""expr ($SM_STATUS>>4)&1""expr ($SM_STATUS>>5)&1""expr ($SM_STATUS>>10)&1""expr ($SM_STATUS>>6)&1""expr ($SM_STATUS>>7)&1""expr ($SM_STATUS>>9)&1""expr ($SM_STATUS>>11)&1""expr ($SM_STATUS>>12)&1""expr ($SM_STATUS>>13)&1""expr ($SM_STATUS>>14)&1""expr ($SM_STATUS>>16)&1""expr ($SM_STATUS>>21)&1""expr ($SM_STATUS>>24)&1""expr ($SM_STATUS>>25)&1""expr ($SM_STATUS>>26)&1""expr ($SM_STATUS>>27)&1""expr ($SM_STATUS>>28)&1""expr ($SM_STATUS>>31)&1"!format "0x%08x" $SM_STATUS!
+    n="EGM Status"
+    s="18""62""46""36""70""101""87""57""60""71""61""62""66""134""74""96""94""189""127""92""111""84""129""45""75""130""68"
+    t="A""LOCNAME""Manuf.""IF""Last EXC""All Connectors In""EGM Power On""Machine Door""Cashbox Door""BV Door""LG Door""EGM Tilt""Handpay""EGM in Audit Mode""Tech Card""EGM Locked""Players Card In""EGM Cleared at next BV D Open""Billbox Out""Billbox Full""EGM Comms OK""EGM Operating""EGM in Cashless Mode""BV Tilt""EGM In Game""Meters Rec from EGM""EGM State"
+  }
+  4={
+    c="$aktiv""$LOCNAME""$SM_MANUF""$SM_IF_TYPE"!clock format $ltel -format "%T"!"expr ($MDC_STATUS>>0)&1""expr ($MDC_STATUS>>3)&1""expr ($MDC_STATUS>>6)&1""expr ($MDC_STATUS>>7)&1""expr ($MDC_STATUS>>10)&1""expr ($MDC_STATUS>>11)&1""expr ($MDC_STATUS>>12)&1""expr ($MDC_STATUS>>13)&1""expr ($MDC_STATUS>>14)&1""expr ($MDC_STATUS>>16)&1""expr ($MDC_STATUS>>21)&1""expr ($MDC_STATUS>>25)&1""expr ($MDC_STATUS>>26)&1""expr ($MDC_STATUS>>27)&1""expr ($MDC_STATUS>>28)&1""expr ($MDC_STATUS>>29)&1""expr ($MDC_STATUS>>30)&1"!format "0x%08x" $MDC_STATUS!
+    n="SMIB Status"
+    s="18""64""44""19""109""89""66""112""98""118""129""93""117""113""104""159""117""120""169""74""74""100""66"
+    t="A""LOCNAME""Manuf""IF""Last comms to FS""BS Comms OK""SMOD8 OK""Download Pending""Restart Pending""Bill Clearance Pend.""Bill Clearance In Prog.""IMD Connected""Attendant Required""Attendant Working""MDC Conv Points""EGM vs MDC Denom wrong""MDC Excep Buff Full""Excep Pending to FS""SAM Removed or no Comms""PFU1 V Low""PFU2 V Low""MDC Configured""MDC State"
+  }
+  5={
+    c="$aktiv""$LOCNAME""$LOCTYPE""$PL_CARD_NR""$CL_SAM_NR"!format "$SM_CUR_NAME %0.2f" [expr [format %u $SAM_PURSE1].0 /100.0]!!format "$SM_CUR_NAME %0.2f" [expr [format %u $SAM_PURSE3].0 /100.0]!"expr (1&&($CL_FLAGS & 0x10))"
+    n="SAM ID"
+    s="34""69""57""148""135""88""122""116"
+    t="A""LOCNAME""LOCTYPE""Card No.""SAM ID Hex""SAM P1""SAM P3""Invalid SAM"
+  }
+  6={
+    c="$aktiv""$LOCNAME""$LOCTYPE""$CR""$SM_MANUF""expr $netdo-$netdo_S"!clock format $ltel -format "%T %D"!!format "%.4f" [expr ((($retr1-$retr1_S)+($retr2-$retr2_S)+($retr3-$retr3_S)) / ($pcnt.0-$pcnt_S.0))*100.0]!"expr $pcnt-$pcnt_S""expr $retr1-$retr1_S""expr $retr2-$retr2_S""expr $retr3-$retr3_S""expr $reptel-$reptel_S""expr $seqjmp-$seqjmp_S"!clock format $TIME_MDC_ON -format "%D"!!clock format $TIME_MDC_ON -format "%T"!!clock format $TIME_MDC_OFF -format "%D"!!clock format $TIME_MDC_OFF -format "%T"!"$SM_IP_ADDR""$MAC_ADDR""$SMHWID""$MDCID""$LOCID""$MDC_FW_VERSION"!format "%04X" $M053f!
+    n="Network Statistics"
+    s="21""63""57""69""73""71""107""75""147""107""108""115""192""188""154""163""161""182""109""103""73""83""93""99""61"
+    t="A""LOCNAME""LOCTYPE""Credits""Manuf.""DHCP Req""Last Sent""% Resent""Total Packets from SMIB""Packet Retry 1""Packet Retry 2""Packet Retry >3""Duplicate Messages""Invalid Seq. No. Changes""SMIB Connected (Date)""SMIB Connected (Time)""SMIB Disconnected (Date)""SMIB Disconnected (Time)""IP Address""MAC Address""SMHWID""SMIB ID""BSO ID""Firmware Ver.""FW CRC"
+  }
+  7={
+    c="$aktiv""$CR""$LOCNAME""$SMDBID""$LOCTYPE""$SM_MANUF""$SM_IF_TYPE"!format "%.2f" [expr $SM_PROTOCOL_VERSION/100.0]!!format "x%X" $SM_FLAGS!!format "x%X" $CL_FLAGS!"$SM_NAME"!format "$SM_CUR_NAME %.2f" [expr $DENOM/100.0]!!format "$SM_CUR_NAME %.2f" [expr $SM_INFO_DENOM/100.0]!"$MG_DENOM""$MG_GAME_ID""$MAX_BET""$SM_INFO_MAX_BET"!format "%0.2f" [expr $TO*100.0/($TI+1)]!!format "%.2f" [expr $SM_INFO_PAYOUT_PCT/100.0]!"$SM_INFO_MODEL""$SM_INFO_PTBL_ID""$SM_EPROMID_1""$SM_EPROMID_2""$SM_EPROMID_3""$SM_MULTIPLIER""$C2P""$MDC_FW_VERSION""$MDC_BL_VERSION"
+    n="Configuration"
+    s="28""49""68""61""59""48""38""76""69""89""141""109""126""115""95""98""140""69""148""103""163""205""122""172""116""99""97""95"
+    t="A""CR""LOCNAME""SMDBID""LOCTYPE""Manuf.""EGM IF""SAS Version""EGM Flags""CL Flags""Theme""Accounting Denom""EGM Reported Denom""Multi-Game Denom""Multi-Game ID""Max Bet""SM Reported Max Bet""Act. Payout %""EGM Reported Payout %""EGM Reported Model""EGM Reported Paytable EPROM""EGM EPROM ID 1""EGM EPROM ID 2""EGM EPROM ID 3""EGM Multiplier""C2P""Firmware""Bootloader"
+  }
+  8={
+    c="$aktiv""$SMDBID""$LOCNAME""$MG_DENOM""$MG_GAME_ID""$CC_VALUE""$CC_FLAGS""$CC""$TI""$TO""$HP""$JPM""$CLO""$CLI""$GM""$CR""$JP_HIT_GROUP""$JP_HIT_LEVEL""$JP_HIT_FLAGS""$JP_HIT_CREDITS""$JD_DATA1""$JD_DATA2""$CL_SAM_NR""$CARD_REJECT_REASON""$HIT_JP_GROUP""$HIT_INSTANCE""$HIT_JP_VALUE"
+    n="EXFIELDS"
+    s="117""118""88""116""162""150""163""57""58""72""74""93""86""97""98""91""113""135""100""113""137""59""143""144""150""88""86"
+    t="A""SMDBID""LOCNAME""Multi-Game Denom""Multi-Game ID""CC VALUE""CC FLAGS""CC""TI""TO""HP""JPM""CLO""CLI""GM""CR""SAS Progr. Group""Hit Level""Hit Flags""Hit Credits""Journal Data 1""Journal Data 2""SAM No.""Card Reject Reason""Mystery JP ID""Mystery Hit Instance""Mystery Win Amount"
+  }
+  9={
+    c="$aktiv""$LOCNAME""$SMDBID""$CR""$SM_IF_TYPE""expr $TI-$TI_S""expr $TO-$TO_S""expr $GM-$GM_S""expr $HP-$HP_S""expr $JPM-$JPM_S""expr $BI-$BI_S""expr $CLI-$CLI_S""expr $CLO-$CLO_S""expr $TO-$TI+$TV*($CI-$CO)+$CLI-$CLO+$BI-($HP-$JPM)-$CR""expr ($TI-$TI_S) - ($TO-$TO_S)""expr ($CLI-$CLI_S)-($CLO-$CLO_S)""expr ($CI-$CI_S)""expr $CO-$CO_S""expr $CTC-$CTC_S""$HO"
+    f="BI""CI""CLI""CLO""CO""CR""CTC""DENOM""ECI""GM""HO""HP""JPM""LOCNAME""MDC_BL_VERSION""MDC_FW_VERSION""SMDBID""SM_IF_TYPE""SM_MANUF""SM_STATUS""TI""TO""aktiv""doseit""ltel""pcnt"
+    n="Meters"
+    s="22""74""62""51""46""75""71""96""61""69""93""73""73""73""83""64""73""42""57""64"
+    t="A""LOCNAME""SMDBID""Credits""EGM IF""Total-In""Total-Out""Games Played""Handpay""JP Meter""Bill-In""CLI""CLO""Audit""TI - TO""CLI - CLO""CI""CO""CTC""HO"
+  }
+}
+select={
+  0={
+    n="All"
+    s="1"
+  }
+  1={
+    n="Active"
+    s="$aktiv && [string length $LOCNAME]"
+  }
+  10={
+    n="SMIB gateways"
+    s=!$LOCTYPE == "9" && $aktiv!
+  }
+  11={
+    n="Played machines"
+    s="$CR>=1"
+  }
+  12={
+    n="Denomination"
+    s=!$DENOM == "10000"!
+  }
+  13={
+    n="Manufacturer"
+    s="$DENOM && $SM_MANUF==I && $DENOM==5"
+  }
+  14={
+    n="Active EGMs"
+    s="$DENOM && $aktiv"
+  }
+  15={
+    n="EGM IF type"
+    s="$SM_IF_TYPE==211 || $SM_IF_TYPE==225"
+  }
+  18={
+    n="Wrong CRC of Firmware"
+    s=#$DENOM && $M053f != "0x1203" && $LOCTYPE == 4#
+  }
+  19={
+    n="Wrong CRC of Bootloader"
+    s=#$DENOM && $M053e != "0x41AD" && $LOCTYPE == 4#
+  }
+  2={
+    n="Select Firmware"
+    s=#$DENOM && $MDC_FW_VERSION != "CCS_55.00.00"#
+  }
+  21={
+    n="Download query"
+    s="$DENOM && ($LOCNAME/100==139)"
+  }
+  23={
+    n="Area 1"
+    s="[string match {1*} $LOCNAME]"
+  }
+  24={
+    n="Firmware check"
+    s=![format "%04X" $M053f] |= "B047"!
+  }
+  25={
+    n="Inactive SMIBs"
+    s="$aktiv ==0"
+  }
+  26={
+    n="Area 2"
+    s="[string match {2*} $LOCNAME]"
+  }
+  27={
+    n="Area 3"
+    s="[string match {3*} $LOCNAME]"
+  }
+  28={
+    n="Player level 4"
+    s="[string match {000004*} $PL_CARD_NR]"
+  }
+  29={
+    n="Player level 1"
+    s="[string match {000001*} $PL_CARD_NR]"
+  }
+  3={
+    n="One bank only SMIBs"
+    s="$DENOM && ($LOCNAME/100==123)"
+  }
+  30={
+    n="Player level 2"
+    s="[string match {000002*} $PL_CARD_NR]"
+  }
+  31={
+    n="Player level 3"
+    s="[string match {000003*} $PL_CARD_NR]"
+  }
+  32={
+    n="Area 4"
+    s="[string match {4*} $LOCNAME]"
+  }
+  33={
+    n="Area 5"
+    s="[string match {5*} $LOCNAME]"
+  }
+  34={
+    n="Specific inserted card"
+    s="$PL_CARD_NR == 0000002010120524"
+  }
+  36={
+    n="Resend % too high"
+    s="[expr ((($retr1.0 + $retr2.0 + $retr3.0)/($pcnt.0))*100000.0)] >= 3"
+  }
+  4={
+    n="LOCTYPE equal to 9"
+    s="$LOCTYPE == 9"
+  }
+  5={
+    n="PFU1 power low and SMIB active"
+    s=!$PS1_VOLTAGE <= "11500" && $aktiv!
+  }
+  6={
+    n="PFU2 power low and SMIB active"
+    s=!$PS2_VOLTAGE <= "11500" && $aktiv!
+  }
+  7={
+    n="One bank with E2S"
+    s=!$SMDBID/100=="137"!
+  }
+  8={
+    n="EGM only"
+    s="$DENOM && $SMDBID"
+  }
+}

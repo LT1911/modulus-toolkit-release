@@ -1,0 +1,53 @@
+--------------------------------------------------------------------------------
+--  ATTENTION --
+----------------
+--
+-- config_site.ms is generated from config_site.tpl.
+-- if config_site.sql does not exist copy config_site.ms to config_site.sql
+--
+-- edit site specific information in config_site.sql do not edit config_site.ms
+-- because it is overwritten whenever create_local_config.bat is executed
+--
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-- File generated for casino: {{CASINO_NAME_UPPER}} (Site User: {{MASTER_SITE_USER}})
+--------------------------------------------------------------------------------
+
+begin
+
+    ----> MASTER SECTION <----
+    -- grips_rep_config.register_master ('tros','tros_link','&sraddin_user','&sraddin_pwd','&sraddin_alias',1);
+    --                          ^       ^                     ^           ^               ^           ^
+    --                          |       |                     |           |               |           |
+    --               master_site_name   |                     ----------------- do NOT modify -----------
+    --                              link_name to master
+    ----> define your master below
+    grips_rep_config.register_master ('mkt_rep_ho','glx_ho','&sraddin_user','&sraddin_pwd','&sraddin_alias',1);
+
+    ----> SITE SECTION <----
+    -- grips_rep_config.register_site ('aswref'  ,'aswref_link'  ,'rep_admin_aswref' ,'geheim','aswref');
+    --                          ^       ^                         ^             ^         ^
+    --                          |       |                         |             |         |
+    --               client_site_name   |                rep_admin_name_at_site |     tns_alias of client site
+    --                              DB_link_to_site                           password of rep_admin
+    --
+    ----> add your sites below
+    {{SITE_REGISTRATIONS}}
+
+    ----> SET SCHEMA SECTION <----
+    -- grips_rep_config.set_site_owner('&claddin_user'    , 'aswref' , 'GRIPS_CLDB' );
+    -- grips_rep_config.set_site_owner('&owneraddin_user', 'aswref' , 'GRIPS_OWNER');
+    --                              ^           ^              ^
+    --                              |           |              |
+    --  schema_name_at_master(do NOT modify)     |     schema_name_at_site
+    --                                  client_site_name
+    --
+    ----> set schemas for each client site here
+    {{SCHEMA_OWNERSHIPS}}
+
+exception
+    when others then
+        rollback;
+        raise;
+end;
+/
